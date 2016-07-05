@@ -22,9 +22,4 @@ export default Component.extend({
     }
     return [];
   }),
-  actions: {
-    click(emoji) {
-      this.sendAction('selectEmoji', emoji);
-    }
-  }
 });

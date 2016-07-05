@@ -1,8 +1,2 @@
 <h1>Choose a Graphic</h1>
-<div class='emojiselector-list'>
-  {{#each emojiList as |emoji|}}
-    <button class='emojiselector-button' {{action 'click' emoji}}>
-      <div class='emoji emojione emojione-{{emoji.unicode}}'></div>
-    </button>
-  {{/each}}
-</div>
+{{emoji-page emojiList=emojiList selectEmoji=selectEmoji}}
