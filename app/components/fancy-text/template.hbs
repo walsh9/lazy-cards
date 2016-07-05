@@ -1,0 +1,20 @@
+{{#if isEditing}}
+<input type=text
+       class='fancytext-input'
+       value={{text.contents}}
+       onchange={{action 'doneEditing'}}
+       onblur={{action 'doneEditing'}}>
+{{else}}
+<svg {{action 'startedEditing'}} width="100%"
+  class={{concat 'fancytext-outer  ' textClasses}}>
+  <text class='fancytext-back' x={{textAnchorX}} y={{textAnchorY}}>
+    {{text.contents}}
+  </text>
+  <text class='fancytext-middle' x={{textAnchorX}} y={{textAnchorY}}>
+    {{text.contents}}
+  </text>
+  <text class='fancytext-front' x={{textAnchorX}} y={{textAnchorY}}>
+    {{text.contents}}
+  </text>
+</svg>
+{{/if}}

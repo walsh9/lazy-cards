@@ -1,0 +1,50 @@
+.fancytext {
+    width: 100%;
+    height: 64px;
+  &-input {
+    height: 64px;
+    font-size: 48px;
+    background: black;
+    color: white;
+    width: 100%;
+    text-align: center;
+    border: 0;
+    outline: 0;
+  }
+  &-outer {
+    width: 100%;
+    height: 64px;
+    alignment-baseline: hanging;
+    text-anchor: middle;
+  }
+  &-back {
+    width: 100%;
+    fill: none;
+    stroke: none;
+    stroke-width: 0;
+  }
+  &-middle {
+    width: 100%;
+    fill: none;
+    stroke: white;
+    stroke-width: 4px;
+  }
+  &-front {
+    width: 100%;
+    fill: black;
+    stroke: transparent;
+    stroke-width: 4px;
+  }
+}
+
+.text-align {
+  &--left {
+    text-anchor: start;
+  }
+  &--center {
+    text-anchor: middle;
+  }
+  &--right {
+    text-anchor: end;
+  }
+}

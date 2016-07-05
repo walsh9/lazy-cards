@@ -4,7 +4,13 @@ var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 module.exports = function(defaults) {
   var app = new EmberApp(defaults, {
-    // Add options here
+    nodeAssets: {
+      'emojione': {
+        srcDir: 'assets',
+        import: ['css/emojione.min.css'],
+        public: ['png/*', 'png_128x128/*', 'png_512x512/*', 'sprites/emojione.sprites.png', 'sprites/emojione.sprites.css'],
+      },
+    }
   });
 
   // Use `app.import` to add additional libraries to the generated

@@ -1,0 +1,31 @@
+.emojiselector {
+  overflow-y: scroll;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+
+  &-list {
+    padding: 64px;
+    width: 100%;
+  }
+
+  &-list .emojione {
+    width: 64px;
+    height: 64px;
+  }
+
+  &-list .emoji:hover {
+  }
+
+  &-button {
+    border: 0;
+    outline: none;
+    background: black;
+    padding: 16px;
+    margin: 0;
+    &:hover, &:focus {
+      cursor: pointer;
+      outline: none;
+      background: white;
+    }
+  }
+}

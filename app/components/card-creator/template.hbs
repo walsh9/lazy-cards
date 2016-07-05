@@ -1,0 +1,47 @@
+<h1>Card Creator: {{selectedFace}}</h1>
+
+<li class="menu">
+  <button class="menu-button" {{action 'openEmojiSelector'}}>Graphic</button>
+  <button class="menu-button" {{action 'openBorderSelector'}}>Border</button>
+  <button class="menu-button" {{action 'openFontSelector'}}>Font</button>
+  {{#if (eq selectedFace 'front')}}
+    <button class="menu-button" {{action 'setFace' 'inside'}}>Inside</button>
+  {{/if}}
+  {{#if (eq selectedFace 'inside')}}
+    <button class="menu-button" {{action 'setFace' 'front'}}>Front</button>
+  {{/if}}
+  <button class="menu-button" {{action 'print'}}>Print</button>
+</li>
+
+<div class="page">
+    {{card-face
+      class="cardface--front"
+      data=frontData
+      isSelected=(eq selectedFace 'front')
+      setText=(action 'setText')
+      click=(action 'setFace' 'front')}}
+    {{card-face
+      class="cardface--inside"
+      data=insideData
+      isSelected=(eq selectedFace 'inside')
+      setText=(action 'setText')
+      click=(action 'setFace' 'inside')}}
+</div>
+
+{{#if (eq openModal 'border-selector')}}
+  <div class="modal">
+    {{border-selector borders=borders selectBorder=(action 'setBorder')}}
+  </div>
+{{/if}}
+
+{{#if (eq openModal 'emoji-selector')}}
+  <div class="modal">
+    {{emoji-selector selectEmoji=(action 'setEmoji')}}
+  </div>
+{{/if}}
+
+{{#if (eq openModal 'font-selector')}}
+  <div class="modal">
+    {{font-selector fonts=fonts selectFont=(action 'setFont')}}
+  </div>
+{{/if}}

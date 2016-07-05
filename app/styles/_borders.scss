@@ -1,0 +1,49 @@
+@mixin image-border {
+  border: 16px solid;
+  padding: 8px;
+  border-image-slice: 64;
+  border-image-repeat: round;
+}
+
+.border {
+  &--none {
+    border: 0;
+    padding: 24px;
+  }
+  &--thin {
+    border: 2px solid;
+    padding: 22px;
+  }
+  &--double {
+    border: 16px double;
+    padding: 8px;
+  }
+  &--thick {
+    border: 16px solid;
+    padding: 8px;
+  }
+  &--hearts {
+    @include image-border;
+    border-image-source: url('/assets/borders/2764.png');
+  }
+  &--diamonds {
+    @include image-border;
+    border-image-source: url('/assets/borders/1f536.png');
+  }
+  &--stars {
+    @include image-border;
+    border-image-source: url('/assets/borders/2b50.png');
+  }
+  &--paw-prints {
+    @include image-border;
+    border-image-source: url('/assets/borders/1f43e.png');
+  }
+  &--music-notes {
+    @include image-border;
+    border-image-source: url('/assets/borders/1f3b6.png');
+  }
+  &--floral {
+    @include image-border;
+    border-image-source: url('/assets/borders/1f338.png');
+  }
+}

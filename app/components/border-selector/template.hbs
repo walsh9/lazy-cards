@@ -1,0 +1,9 @@
+<h1>Choose a Border</h1>
+<div class='borderselector-list'>
+  {{#each borders as |border|}}
+    <button class='borderselector-button {{class-for 'border' border}}'
+    {{action 'click' border}}>
+      {{border}}
+    </button>
+  {{/each}}
+</div>

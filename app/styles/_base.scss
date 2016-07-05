@@ -1,0 +1,19 @@
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+body {
+  border: 0;
+  margin: 0;
+}
+h1 {
+  margin: 0;
+  font-size: 32px;
+  width: 100%;
+  background: white;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'VT323', monospace;
+}

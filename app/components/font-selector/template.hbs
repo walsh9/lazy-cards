@@ -1,0 +1,9 @@
+<h1>Choose a Font</h1>
+<div class='fontselector-list'>
+  {{#each fonts as |font|}}
+    <button class='fontselector-button {{class-for 'font' font}}'
+            {{action 'click' font}}>
+      {{font}}
+    </button>
+  {{/each}}
+</div>

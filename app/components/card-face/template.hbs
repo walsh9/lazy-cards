@@ -1,0 +1,8 @@
+<div class='graphic graphic--big'>
+  {{dithered-image width=300 height=300 src=graphicUrl ditherMethod='sierra'}}
+</div>
+<div class='text {{class-for 'font' font}}'>
+{{#each data.text as |text index|}}
+  {{fancy-text text=text index=index updateText=setText}}
+{{/each}}
+</div>

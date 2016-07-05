@@ -1,0 +1,62 @@
+.page {
+  position: relative;
+}
+
+.cardface {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
+@media all {
+  .page {
+    height: 278mm; /* Letter size */
+    width: 214mm;
+    min-height: 278mm; /* Letter size */
+    min-width: 214mm;
+  }
+}
+
+@media screen {
+  body {
+    background: black;
+  }
+  .page {
+    background: white;
+    min-height: 144mm;
+    height: 144mm;
+    min-width: 117mm;
+    width: 117mm;
+    margin: auto;
+    padding: 2%;
+  }
+  .cardface {
+    display: none;
+    min-width: 100%;
+    min-height: 100%;
+    &--selected {
+      display: block;
+    }
+  }
+}
+
+@media print {
+  h1, .menu {
+    display: none;
+  }
+  .cardface {
+    width: 48%;
+    height: 48%;
+    position: absolute;
+    box-shadow: none;
+  }
+  .cardface--front {
+    bottom: 0;
+    right: 0;
+  }
+  .cardface--inside {
+    top: 0;
+    left: 0;
+    transform: rotateX(180deg) rotateY(180deg);
+  }
+}
