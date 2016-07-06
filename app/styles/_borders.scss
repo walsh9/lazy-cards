@@ -22,6 +22,16 @@
     border: 16px solid;
     padding: 8px;
   }
+  &--rounded {
+    border: 8px solid;
+    padding: 16px;
+    border-radius: 16px;
+  }
+  &--double-rounded {
+    border: 16px double;
+    padding: 8px;
+    border-radius: 16px;
+  }
   &--hearts {
     @include image-border;
     border-image-source: url('/assets/borders/2764.png');

@@ -3,6 +3,8 @@ export const borders = [
   'Thin',
   'Double',
   'Thick',
+  'Rounded',
+  'Double Rounded',
   'Hearts',
   'Diamonds',
   'Stars',
