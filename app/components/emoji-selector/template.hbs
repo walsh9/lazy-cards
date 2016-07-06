@@ -1,2 +1,9 @@
 <h1>Choose a Graphic</h1>
-{{emoji-page emojiList=emojiList selectEmoji=selectEmoji}}
+<div class='emojiselector-list'>
+  <div class='emojiselector-catmenu'>
+    {{#each categories as |category|}}
+      <button class='emojiselector-catbutton' {{action 'setCategory' category}}>{{category}}</button>
+    {{/each}}
+  </div>
+  {{emoji-page emojiList=emojiList selectEmoji=selectEmoji}}
+</div>

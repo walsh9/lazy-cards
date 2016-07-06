@@ -1,6 +1,7 @@
 /*jshint node:true*/
 /* global require, module */
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
+var Funnel = require('broccoli-funnel');
 
 module.exports = function(defaults) {
   var app = new EmberApp(defaults, {
@@ -12,6 +13,15 @@ module.exports = function(defaults) {
       },
     }
   });
+
+  var emojiJSON = new Funnel('node_modules/emojione', {
+    srcDir: '/',
+    include: ['emoji.json'],
+    destDir: '/'
+  });
+
+  return app.toTree([emojiJSON]);
+
 
   // Use `app.import` to add additional libraries to the generated
   // output files.
