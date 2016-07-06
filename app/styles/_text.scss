@@ -1,12 +1,12 @@
 .text {
-  color: black;
+  color: $dark;
   padding: 4px;
   width: 100%;
   height: 100%;
   font-size: 48px;
   line-height: 64px;
   position: absolute;
-  text-shadow: 2px 2px white, -2px -2px white, 2px -2px white, -2px 2px white;
+  text-shadow: 2px 2px $light, -2px -2px $light, 2px -2px $light, -2px 2px $light;
   top: 0;
   left: 0;
 }
@@ -17,6 +17,6 @@
   text-align: center;
   @media print {
     -webkit-print-color-adjust: exact;
-    -webkit-filter: drop-shadow(2px 2px white, -2px -2px white, 2px -2px white, -2px 2px white);
+    -webkit-filter: drop-shadow(2px 2px $light, -2px -2px $light, 2px -2px $light, -2px 2px $light);
   }
 }

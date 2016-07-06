@@ -19,10 +19,10 @@
 
 @media screen {
   body {
-    background: black;
+    background: $dark;
   }
   .page {
-    background: white;
+    background: $light;
     min-height: 144mm;
     height: 144mm;
     min-width: 117mm;

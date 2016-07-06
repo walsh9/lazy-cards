@@ -8,22 +8,16 @@
   }
 
   &-button {
-    display: inline-block;
-    outline: none;
+    @include btn;
+
     width: 40%;
     margin: 16px;
-    font-family: VT323, monospace;
-    font-size: 24px;
-    background: black;
-    border-color: white;
-    color: white;
+    border-color: $light;
 
     &:hover, &:focus {
-      cursor: pointer;
-      outline: none;
-      color: black;
-      border-color: black;
-      background: white;
+      color: $dark;
+      background-color: $light;
+      border-color: $dark;
     }
   }
 }

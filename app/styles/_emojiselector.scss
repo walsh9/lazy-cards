@@ -6,6 +6,7 @@
   &-list {
     padding: 64px;
     width: 100%;
+    text-align: center;
   }
 
   &-list .emojione {
@@ -16,16 +17,17 @@
   &-list .emoji:hover {
   }
 
+  &-catmenu {
+    text-align: center;
+  }
+
+  &-catbutton {
+    @include btn;
+  }
+
   &-button {
-    border: 0;
-    outline: none;
-    background: black;
+    @include btn;
     padding: 16px;
     margin: 0;
-    &:hover, &:focus {
-      cursor: pointer;
-      outline: none;
-      background: white;
-    }
   }
 }

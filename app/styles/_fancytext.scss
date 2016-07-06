@@ -4,8 +4,8 @@
   &-input {
     height: 64px;
     font-size: 48px;
-    background: black;
-    color: white;
+    background: $dark;
+    color: $light;
     width: 100%;
     text-align: center;
     border: 0;
@@ -26,12 +26,12 @@
   &-middle {
     width: 100%;
     fill: none;
-    stroke: white;
+    stroke: $light;
     stroke-width: 4px;
   }
   &-front {
     width: 100%;
-    fill: black;
+    fill: $dark;
     stroke: transparent;
     stroke-width: 4px;
   }
