@@ -17,7 +17,6 @@ export default Component.extend({
     'travel',
     'objects',
     'symbols',
-    'flags',
     'new!',
     ],
   emojiList: computed('emojis', 'category', function() {
