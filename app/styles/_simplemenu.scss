@@ -1,0 +1,10 @@
+.simplemenu {
+  display: inline-block;
+  text-align: center;
+  &-item {
+    @include menuitem;
+    width: 100%;
+    display: block;
+    text-align: left;
+  }
+}

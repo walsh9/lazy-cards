@@ -1,9 +1,18 @@
 <h1>Choose a Font</h1>
 <div class='fontselector-list'>
-  {{#each fonts as |font|}}
-    <button class='fontselector-button {{class-for 'font' font}}'
-            {{action 'click' font}}>
+{{#keyboard-menu class='fontselector-menu'
+  keyboardPriority=1
+  options=fonts
+  selectHandler=(action 'chooseFont')
+  cancelHandler=cancelHandler
+  as |currentIndex select|}}
+  {{#each fonts as |font index|}}
+    <li class='fontselector-item {{if (eq index currentIndex) 'focus'}} {{class-for 'font' font}}'
+    role='menuitem'
+    tabindex='-1'
+    {{action select index}}>
       {{font}}
-    </button>
+    </li>
   {{/each}}
+{{/keyboard-menu}}
 </div>

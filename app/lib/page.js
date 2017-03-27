@@ -4,10 +4,11 @@ import set from 'ember-metal/set';
 import TextRow from './text-row';
 
 const defaults = {
-  graphic: null,
-  font:    'Coustard',
-  border:  'thin',
-  numRows: 7,
+  graphic:         null,
+  graphicSize:     'big',
+  font:            'Coustard',
+  border:          'thin',
+  numRows:         7,
   textOptions: {
     size:     'medium',
     align:    'center',
@@ -19,10 +20,11 @@ const defaults = {
 export default EmberObject.extend({
   init: function(options = {}) {
     let settings = Object.assign({}, defaults, options);
-    set(this, 'graphic', settings.graphic);
-    set(this, 'font',    settings.font);
-    set(this, 'border',  settings.border);
-    set(this, 'text',    []);
+    set(this, 'graphic',         settings.graphic);
+    set(this, 'graphicSize',     settings.graphicSize);
+    set(this, 'font',            settings.font);
+    set(this, 'border',          settings.border);
+    set(this, 'text',            []);
     for(let i = 0; i < settings.numRows; i++) {
       get(this, 'text').pushObject(TextRow.create(settings.textOptions));
     }

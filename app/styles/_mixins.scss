@@ -13,13 +13,40 @@
     border-color: $light;
     cursor: default;
   }
-  &:focus {
+  &:focus, &.focus {
     color: $dark;
     background: $light;
     outline: none;
     border-color: $light;
   }
-  &:focus:hover {
+  &:focus:hover, &.focus:hover {
+    border-color: $dark;
+  }
+}
+
+@mixin menuitem {
+  display: inline-block;
+  color: $light;
+  background: $dark;
+  background: 0;
+  border-width: 2px;
+  border-style: solid;
+  border-color: $dark;
+  outline: none;
+  font-size: 24px;
+  text-transform: uppercase;
+  font-family: 'VT323', monospace;
+  &:hover {
+    border-color: $light;
+    cursor: default;
+  }
+  &.focus {
+    color: $dark;
+    background: $light;
+    outline: none;
+    border-color: $light;
+  }
+  &.focus:hover {
     border-color: $dark;
   }
 }

@@ -1,8 +1,14 @@
-<div class='graphic graphic--big'>
-  {{dithered-image width=300 height=300 src=graphicUrl ditherMethod='sierra'}}
-</div>
-<div class='text {{class-for 'font' font}}'>
-{{#each data.text as |text index|}}
-  {{fancy-text text=text index=index updateText=setText}}
+{{#each graphics as |graphic index|}}
+  <div class='graphic {{class-for 'graphic' size}} i{{index}}'>
+    {{dithered-image width=graphicSize height=graphicSize src=graphicUrl ditherMethod='sierra' enabled=enabled}}
+  </div>
 {{/each}}
-</div>
+
+
+{{text-zone
+  active=(eq editMode 'text')
+  font=font
+  text=data.text
+  updateText=updateText
+  doneEditing=doneEditing}}
+

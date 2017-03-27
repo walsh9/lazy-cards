@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   actions: {
-    click(emoji) {
+    chooseEmoji(emoji) {
       this.sendAction('selectEmoji', emoji);
     }
   }

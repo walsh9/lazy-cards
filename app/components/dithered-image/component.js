@@ -16,6 +16,7 @@ export default Component.extend({
     let height =  get(this, 'height');
     let ditherMethod = get(this, 'ditherMethod');
     let component = this;
+    set(component, 'finalImage', null);
     loadImageData(source, width, height)
     .then(imageData => dither(imageData, ditherMethod))
     .then(ditheredImageData => {

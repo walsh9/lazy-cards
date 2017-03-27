@@ -1,14 +1,25 @@
 import Component from 'ember-component';
 import get from 'ember-metal/get';
 import set from 'ember-metal/set';
+import computed from 'ember-computed';
 import Page from '../../lib/page';
 import { borders, fonts } from '../../lib/settings';
+import { next } from 'ember-runloop';
 
 export default Component.extend({
   frontData: null,
   insideData: null,
   selectedFace: 'front',
   openModal: null,
+  editMode: null,
+  helpText: computed('editMode', function() {
+    let editMode = get(this, 'editMode');
+    let defaultHelp = '[↑],[↓]: Select, [Enter]: Choose Item';
+    return {
+      text: '[→],[←],[↑],[↓]: Select, [Enter]: Change Option, [Esc]: Back/Done',
+      graphic: '[→],[←],[↑],[↓]: Select, [Enter]: Toggle Graphic, [Esc]: Back/Done',
+    }[editMode] || defaultHelp;
+  }),
   borders,
   fonts,
   init() {
@@ -17,11 +28,26 @@ export default Component.extend({
     set(this, 'insideData', Page.create());
   },
   actions: {
+    mainmenuSelect(item) {
+      console.log();
+      this.send(...get(item, 'value'));
+    },
     openBorderSelector() {
       set(this, 'openModal', 'border-selector');
     },
     openEmojiSelector() {
       set(this, 'openModal', 'emoji-selector');
+    },
+    toggleGraphicSize() {
+      let selectedFace = get(this, 'selectedFace');
+      let graphicSize = get(this, selectedFace + 'Data.graphicSize');
+      if (graphicSize === 'big') {
+        set(this, selectedFace + 'Data.graphicSize', 'medium');
+      } else if (graphicSize === 'medium') {
+        set(this, selectedFace + 'Data.graphicSize', 'little');
+      } else {
+        set(this, selectedFace + 'Data.graphicSize', 'big');
+      }
     },
     openFontSelector() {
       set(this, 'openModal', 'font-selector');
@@ -44,10 +70,16 @@ export default Component.extend({
     setFace(face) {
       set(this, 'selectedFace', face);
     },
+    setEditMode(mode) {
+      set(this, 'editMode', mode);
+    },
+    endEditMode(mode) {
+      set(this, 'editMode', null);
+    },
     setText(index, text) {
       let selectedFace = get(this, 'selectedFace');
       let textList = get(this, selectedFace + 'Data.text');
-      textList.replace(index, 1, text);
+      next(function() {textList.replace(index, 1, text);});
     },
     closeModal() {
       set(this, 'openModal', null);

@@ -1,9 +1,11 @@
-<h1>Choose a Graphic</h1>
-<div class='emojiselector-list'>
-  <div class='emojiselector-catmenu'>
-    {{#each categories as |category|}}
-      <button class='emojiselector-catbutton' {{action 'setCategory' category}}>{{category}}</button>
-    {{/each}}
-  </div>
-  {{emoji-page emojiList=emojiList selectEmoji=selectEmoji}}
-</div>
+{{#if choosingGraphics}}
+  {{emoji-selector-graphics
+    emojiList=emojiList
+    selectEmoji=(action 'setGraphic')
+    cancelHandler=(action 'cancel')}}
+{{else}}
+  {{emoji-selector-categories
+    categoryList=categoryList
+    selectCategory=(action 'setCategory')
+    cancelHandler=cancelHandler}}
+{{/if}}

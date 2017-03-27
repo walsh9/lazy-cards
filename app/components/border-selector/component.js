@@ -4,7 +4,7 @@ export default Ember.Component.extend({
   classNames: ['borderselector'],
   borders: [],
   actions: {
-    click(border) {
+    chooseBorder(border) {
       this.sendAction('selectBorder', border);
     }
   }

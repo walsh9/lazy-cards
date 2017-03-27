@@ -1,50 +1,122 @@
 .fancytext {
     width: 100%;
-    height: 64px;
+    height: 100%;
   &-input {
-    height: 64px;
-    font-size: 48px;
+    height: 100%;
     background: $dark;
     color: $light;
     width: 100%;
-    text-align: center;
     border: 0;
     outline: 0;
   }
+  &-sizebutton {
+    @include btn;
+    height: 48px;
+    width: 128px;
+    line-height: 48px;
+    position: absolute;
+    left: -200px;
+  }
+  &-alignbutton  {
+    @include btn;
+    height: 48px;
+    width: 128px;
+    line-height: 48px;
+    position: absolute;
+    left: -400px;
+  }
   &-outer {
     width: 100%;
-    height: 64px;
+    height: 100%;
     alignment-baseline: hanging;
-    text-anchor: middle;
   }
   &-back {
     width: 100%;
-    fill: none;
-    stroke: none;
-    stroke-width: 0;
   }
   &-middle {
     width: 100%;
-    fill: none;
-    stroke: $light;
-    stroke-width: 4px;
   }
   &-front {
     width: 100%;
-    fill: $dark;
-    stroke: transparent;
-    stroke-width: 4px;
+  }
+}
+
+.text-style {
+  &--normal {
+    .fancytext {
+      &-back {
+        fill: none;
+        stroke: none;
+        stroke-width: 0;
+      }
+      &-middle {
+        fill: none;
+        stroke: $light;
+        stroke-width: 4px;
+      }
+      &-front {
+        fill: $dark;
+        stroke: transparent;
+        stroke-width: 4px;
+      }
+    }
+  }
+  &--outline {
+    .fancytext {
+      &-back {
+        fill: none;
+        stroke: none;
+        stroke-width: 0;
+      }
+      &-middle {
+        fill: none;
+        stroke: $dark;
+        stroke-width: 4px;
+      }
+      &-front {
+        fill: $light;
+        stroke: transparent;
+        stroke-width: 4px;
+      }
+    }
+  }
+}
+
+.text-size {
+  &--small {
+    font-size: 32px;
+    height: 48px;
+    line-height: 48px;
+  }
+  &--medium {
+    font-size: 48px;
+    height: 64px;
+    line-height: 64px;
+  }
+  &--large {
+    font-size: 64px;
+    height: 80px;
+    line-height: 80px;
   }
 }
 
 .text-align {
   &--left {
     text-anchor: start;
+    .fancytext-input {
+      text-align: left;
+    }
   }
   &--center {
     text-anchor: middle;
+    .fancytext-input {
+      text-align: center;
+    }
   }
   &--right {
     text-anchor: end;
+    .fancytext-input {
+      text-align: right;
+    }
   }
 }

@@ -1,9 +1,16 @@
 <h1>Choose a Border</h1>
-<div class='borderselector-list'>
-  {{#each borders as |border|}}
-    <button class='borderselector-button {{class-for 'border' border}}'
-    {{action 'click' border}}>
-      {{border}}
-    </button>
-  {{/each}}
+<div class='borderselector'>
+  {{#keyboard-menu class='borderselector-menu'
+    keyboardPriority=1
+    options=borders
+    selectHandler=(action 'chooseBorder')
+    cancelHandler=cancelHandler
+    as |currentIndex select|}}
+    {{#each borders as |border index|}}
+      <li class='borderselector-item {{if (eq index currentIndex) 'focus'}} {{class-for 'border' border}}'
+      {{action 'chooseBorder' border}}>
+        {{border}}
+      </li>
+    {{/each}}
+  {{/keyboard-menu}}
 </div>

@@ -1,13 +1,14 @@
 .fontselector {
-  overflow-y: scroll;
 
   &-list {
     padding: 32px;
     width: 100%;
+    display: inline-block;
+    text-align: center;
   }
 
-  &-button {
-    @include btn;
+  &-item {
+    @include menuitem;
     padding: 4px;
     width: 100%;
     font-size: 48px;

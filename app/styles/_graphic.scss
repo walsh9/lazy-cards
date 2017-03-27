@@ -1,15 +1,111 @@
 .graphic {
-  display: block;
+  top: 20px;
+  left: 20px;
   position: absolute;
-  top: 100px;
-  left: 0;
-  right: 0;
-  border: none;
+  width: calc(100% - 40px);
+  height: calc(100% - 40px);
+  display: block;
+  border: 0;
   background-color: transparent;
-  width: 300px;
-  margin: auto;
   &--big img {
+    position: absolute;
+    display: block;
+    top: calc(50% - 150px);
+    left: calc(50% - 150px);
     width: 300px;
     height: 300px;
+  }
+  &--medium {
+    img {
+      position: absolute;
+      display: block;
+      width: 150px;
+      height: 150px;
+    }
+    &.i0 img {
+      left: 0;
+      top: 0;
+    }
+    &.i1 img {
+      right: 0;
+      top: 0;
+    }
+    &.i2 img {
+      left: calc(50% - 75px);
+      top: calc(50% - 75px);
+    }
+    &.i3 img {
+      left: 0;
+      bottom: 0;
+    }
+    &.i4 img {
+      right: 0;
+      bottom: 0;
+    }
+  }
+  &--little {
+    img {
+      position: absolute;
+      display: block;
+      width: 75px;
+      height: 75px;
+    }
+    &.i0 img {
+      left: 0;
+      top: 0;
+    }
+    &.i1 img {
+      left: calc(50% - 37px);
+      top: 0;
+    }
+    &.i2 img {
+      right: 0;
+      top: 0;
+    }
+
+    &.i3 img {
+      left: calc(29% - 37px);
+      top: calc(29% - 37px);
+    }
+    &.i4 img {
+      left: calc(71% - 37px);
+      top: calc(29% - 37px);
+    }
+
+    &.i5 img {
+      left: 0;
+      top: calc(50% - 37px);
+    }
+    &.i6 img {
+      left: calc(50% - 37px);
+      top: calc(50% - 37px);
+    }
+    &.i7 img {
+      right: 0;
+      top: calc(50% - 37px);
+    }
+
+    &.i8 img {
+      left: calc(29% - 37px);
+      top: calc(71% - 37px);
+    }
+    &.i9 img {
+      left: calc(71% - 37px);
+      top: calc(71% - 37px);
+    }
+
+    &.i10 img {
+      left: 0;
+      bottom: 0;
+    }
+    &.i11 img {
+      left: calc(50% - 37px);
+      bottom: 0;
+    }
+    &.i12 img {
+      right: 0;
+      bottom: 0;
+    }
+
   }
 }

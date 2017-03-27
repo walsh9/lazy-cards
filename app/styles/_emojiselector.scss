@@ -1,33 +1,35 @@
 .emojiselector {
-  overflow-y: scroll;
+  text-align: center;
   -webkit-filter: grayscale(100%);
   filter: grayscale(100%);
 
-  &-list {
-    padding: 64px;
-    width: 100%;
-    text-align: center;
+  &-categories {
+    &list {
+      width: 100%;
+      text-align: center;
+    }
+    &item {
+      @include menuitem;
+      display: block;
+    }
   }
 
-  &-list .emojione {
-    width: 64px;
-    height: 64px;
-  }
+  &-graphics {
+    &list {
+      width: auto;
+      text-align: left;
+      padding: 64px;
 
-  &-list .emoji:hover {
-  }
+      .emojione {
+        width: 64px;
+        height: 64px;
+      }
+    }
 
-  &-catmenu {
-    text-align: center;
-  }
-
-  &-catbutton {
-    @include btn;
-  }
-
-  &-button {
-    @include btn;
-    padding: 16px;
-    margin: 0;
+    &item {
+      @include menuitem;
+      padding: 16px;
+      margin: 0;
+    }
   }
 }

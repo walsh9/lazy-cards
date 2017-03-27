@@ -8,8 +8,9 @@ import set from 'ember-metal/set';
 export default Component.extend({
   classNames: ['emojiselector'],
   emojis: null,
-  category: 'people',
-  categories: [
+  category: null,
+  choosingGraphics: false,
+  categoryList: [
     'people',
     'nature',
     'food',
@@ -19,13 +20,29 @@ export default Component.extend({
     'symbols',
     'new!',
     ],
+  // not in this timeline
+  temporalBlackList: [
+    ':iphone:',
+    ':calling:',
+    ':desktop:',
+    ':euro:',
+    ':mobile_phone_off:',
+    ':vibration_mode:',
+    ':no_mobile_phones:',
+    ':selfie_tone1:',
+    ':selfie_tone2:',
+    ':selfie_tone3:',
+    ':selfie_tone4:',
+    ':selfie_tone5:',
+    ],
   emojiList: computed('emojis', 'category', function() {
-    let alias = {'new!': 'unicode9'}
+    let alias = {'new!': 'unicode9'};
     let emojis = get(this, 'emojis');
     if (emojis) {
       let category = get(this, 'category');
       category = alias[category] || category;
-      return emojis.filterBy('category', category);
+      console.table(emojis.filterBy('category', category));
+      return emojis.filterBy('category', category).filter( emoji => !get(this, 'temporalBlackList').includes(emoji.shortname) );
     }
     return [];
   }),
@@ -44,6 +61,14 @@ export default Component.extend({
   actions: {
     setCategory(category) {
       set(this, 'category', category);
+      set(this, 'choosingGraphics', true);
+    },
+    setGraphic(emoji) {
+      set(this, 'choosingGraphics', false);
+      this.sendAction('selectEmoji', emoji);
+    },
+    cancel() {
+      set(this, 'choosingGraphics', false);
     }
   }
 });

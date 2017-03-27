@@ -4,7 +4,7 @@ export default Component.extend({
   classNames: ['fontselector'],
   fonts: [],
   actions: {
-    click(font) {
+    chooseFont(font) {
       this.sendAction('selectFont', font);
     }
   }

@@ -1,12 +1,25 @@
-{{#if isEditing}}
+{{#if active}}
+<button
+  class='fancytext-alignbutton {{if (eq activeCol 0) 'focus'}}'
+  tabindex=-1
+  {{action 'toggleFontAlign'}}>
+    {{text.align}}
+  </button>
+<button
+  class='fancytext-sizebutton {{if (eq activeCol 1) 'focus'}}'
+  tabindex=-1
+  {{action 'toggleFontSize'}}>
+    {{text.size}}
+  </button>
 <input type=text
-       class='fancytext-input'
+       class='fancytext-input {{if (eq activeCol 2) 'focus'}}'
+       tabindex=-1
        value={{text.contents}}
-       onchange={{action 'doneEditing'}}
-       onblur={{action 'doneEditing'}}>
+       onchange={{action 'change'}}
+       >
 {{else}}
-<svg {{action 'startedEditing'}} width="100%"
-  class={{concat 'fancytext-outer  ' textClasses}}>
+<svg width="100%"
+  class={{concat 'fancytext-outer'}}>
   <text class='fancytext-back' x={{textAnchorX}} y={{textAnchorY}}>
     {{text.contents}}
   </text>

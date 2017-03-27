@@ -3,7 +3,11 @@ import { htmlSafe } from 'ember-string';
 
 export function classFor([prop, type]) {
   if (prop && type) {
-    return htmlSafe(prop.dasherize() + '--' + type.dasherize());
+    if (prop === '') {
+      return type.dasherize();
+    } else {
+      return htmlSafe(prop.dasherize() + '--' + type.dasherize());
+    }
   }
   return htmlSafe('');
 }
