@@ -1,7 +1,7 @@
 import Component from 'ember-component';
 
 export default Component.extend({
-  classNames: ['fontselector'],
+  classNames: ['font-selector'],
   fonts: [],
   actions: {
     chooseFont(font) {

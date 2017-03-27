@@ -1,13 +1,13 @@
-<h1>Choose a Graphic</h1>
+<h1 class='emoji-graphic-selector__header'>Choose a Graphic</h1>
 
-{{#keyboard-menu class='emojiselector-graphicslist'
+{{#keyboard-menu class='emoji-graphic-selector__list'
   keyboardPriority=1
   options=emojiList
   selectHandler=(action 'chooseEmoji')
   cancelHandler=cancelHandler
   as |currentIndex select|}}
   {{#each emojiList as |emoji index|}}
-    <li class='emojiselector-graphicsitem {{if (eq index currentIndex) 'focus'}}'
+    <li class='emoji-graphic-selector__item {{if (eq index currentIndex) 'focus'}}'
       {{action select index}}>
       <div class='emoji emojione emojione-{{emoji.unicode}}'></div>
     </li>

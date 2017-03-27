@@ -1,18 +1,15 @@
-.fontselector {
+.font-selector__list {
+  padding: 32px;
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+}
 
-  &-list {
-    padding: 32px;
-    width: 100%;
-    display: inline-block;
-    text-align: center;
-  }
-
-  &-item {
-    @include menuitem;
-    padding: 4px;
-    width: 100%;
-    font-size: 48px;
-    line-height: 64px;
-    margin: 0;
-  }
+.font-selector__item {
+  @include menuitem;
+  padding: 4px;
+  width: 100%;
+  font-size: 48px;
+  line-height: 64px;
+  margin: 0;
 }

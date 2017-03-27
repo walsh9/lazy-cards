@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  classNames: ['borderselector'],
+  classNames: ['border-selector'],
   borders: [],
   actions: {
     chooseBorder(border) {

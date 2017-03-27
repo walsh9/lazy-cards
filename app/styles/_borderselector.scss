@@ -1,23 +1,24 @@
-.borderselector {
+.border-selector {
   overflow-y: scroll;
+}
 
-  &-list {
-    padding: 32px;
-    width: 100%;
-    text-align: center;
-  }
+.border-selector__list {
+  overflow-y: scroll;
+  padding: 32px;
+  width: 100%;
+  text-align: center;
+}
 
-  &-item {
-    @include menuitem;
+.border-selector__item {
+  @include menuitem;
 
-    width: 40%;
-    margin: 16px;
-    border-color: $light;
+  width: 40%;
+  margin: 16px;
+  border-color: $light;
 
-    &:hover, &:focus {
-      color: $dark;
-      background-color: $light;
-      border-color: $dark;
-    }
+  &:hover, &:focus {
+    color: $dark;
+    background-color: $light;
+    border-color: $dark;
   }
 }

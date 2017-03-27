@@ -6,7 +6,7 @@ import get from 'ember-metal/get';
 import set from 'ember-metal/set';
 
 export default Component.extend({
-  classNames: ['emojiselector'],
+  classNames: ['emoji-selector'],
   emojis: null,
   category: null,
   choosingGraphics: false,

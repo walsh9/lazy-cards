@@ -1,35 +1,32 @@
-.emojiselector {
+.emoji-selector {
   text-align: center;
   -webkit-filter: grayscale(100%);
   filter: grayscale(100%);
+}
 
-  &-categories {
-    &list {
-      width: 100%;
-      text-align: center;
-    }
-    &item {
-      @include menuitem;
-      display: block;
-    }
+.emoji-category-selector__list {
+  width: 100%;
+  text-align: center;
+}
+
+.emoji-category-selector__item {
+  @include menuitem;
+  display: block;
+}
+
+.emoji-graphic-selector__list {
+  width: auto;
+  text-align: left;
+  padding: 64px;
+
+  .emojione {
+    width: 64px;
+    height: 64px;
   }
+}
 
-  &-graphics {
-    &list {
-      width: auto;
-      text-align: left;
-      padding: 64px;
-
-      .emojione {
-        width: 64px;
-        height: 64px;
-      }
-    }
-
-    &item {
-      @include menuitem;
-      padding: 16px;
-      margin: 0;
-    }
-  }
+.emoji-graphic-selector__item {
+  @include menuitem;
+  padding: 16px;
+  margin: 0;
 }
