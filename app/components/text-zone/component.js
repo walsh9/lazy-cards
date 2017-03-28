@@ -16,6 +16,11 @@ export default Component.extend(EKMixin, {
   size: computed('text', function() {
    //console.log(get(this, 'text.length'));
   }),
+  focusOut(e) {
+    if (document.activeElement === document.body) {
+      this.focusCurrentItem();
+    }
+  },
   rowCount: readOnly('text.length'),
   actions: {
     startEditing() {
@@ -32,6 +37,7 @@ export default Component.extend(EKMixin, {
     selectItem(row, col) {
       set(this, 'activeRow', row);
       set(this, 'activeCol', col);
+      this.focusCurrentItem();
     }
   },
   currentItem: computed('activeRow', 'activeCol', function() {
@@ -90,7 +96,10 @@ export default Component.extend(EKMixin, {
     this.sendAction('doneEditing');
   }),
   focusCurrentItem() {
-    let item = get(this, 'currentItem');
+    let activeRow = get(this, 'activeRow');
+    let activeCol = get(this, 'activeCol');
+    let row = this.$(`.fancytext:nth-child(${activeRow + 1})`);
+    let item = row.find(`:nth-child(${activeCol + 1})`);
     item.focus();
   }
 });
