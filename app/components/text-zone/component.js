@@ -14,7 +14,7 @@ export default Component.extend(EKMixin, {
   activeRow: 0,
   activeCol: 2,
   size: computed('text', function() {
-    console.log(get(this, 'text.length'));
+   //console.log(get(this, 'text.length'));
   }),
   rowCount: readOnly('text.length'),
   actions: {

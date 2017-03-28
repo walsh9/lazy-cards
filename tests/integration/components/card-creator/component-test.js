@@ -8,7 +8,7 @@ moduleForComponent('card-creator', 'Integration | Component | card creator', {
 test('it renders', function(assert) {
   this.render(hbs`{{card-creator}}`);
   assert.ok(this.$('h1').length, 'Header exists');
-  assert.ok(this.$('.menu').length, 'Menu exists');
+  assert.ok(this.$('.mainmenu').length, 'Menu exists');
   assert.ok(this.$('.page').length, 'Page exists');
   assert.ok(this.$('.cardface--front').length, 'Card Face exists');
 });

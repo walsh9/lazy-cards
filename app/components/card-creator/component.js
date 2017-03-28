@@ -9,6 +9,8 @@ import { next } from 'ember-runloop';
 export default Component.extend({
   frontData: null,
   insideData: null,
+  classNames: ['card-creator'],
+  classNameBindings: ['editMode:card-creator--editing'],
   selectedFace: 'front',
   openModal: null,
   editMode: null,
@@ -29,7 +31,6 @@ export default Component.extend({
   },
   actions: {
     mainmenuSelect(item) {
-      console.log();
       this.send(...get(item, 'value'));
     },
     openBorderSelector() {
@@ -73,7 +74,7 @@ export default Component.extend({
     setEditMode(mode) {
       set(this, 'editMode', mode);
     },
-    endEditMode(mode) {
+    endEditMode() {
       set(this, 'editMode', null);
     },
     setText(index, text) {

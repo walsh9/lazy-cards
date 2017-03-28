@@ -3,8 +3,15 @@ import { module, test } from 'qunit';
 
 module('Unit | Utility | modulo');
 
-// Replace this with your real tests.
 test('it works', function(assert) {
-  let result = modulo();
-  assert.ok(result);
+  assert.equal(modulo(1, 10), 1);
+  assert.equal(modulo(10, 10), 0);
+  assert.equal(modulo(15, 10), 5);
+  assert.equal(modulo(20, 10), 0);
+  assert.equal(modulo(-4, 10), 6);
+  assert.equal(modulo(-12, 10), 8);
+  assert.equal(modulo(6, 1), 0);
+  assert.equal(modulo(-8, 1), 0);
+  assert.ok(Number.isNaN(modulo(-2, 0)));
+  assert.ok(Number.isNaN(modulo(5, 0)));
 });

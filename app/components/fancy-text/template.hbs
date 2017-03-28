@@ -1,21 +1,22 @@
-{{#if active}}
+{{#if editing}}
 <button
-  class='fancytext-alignbutton {{if (eq activeCol 0) 'focus'}}'
+  class='fancytext-alignbutton {{if (and active (eq activeCol 0)) 'focus'}}'
   tabindex=-1
   {{action 'toggleFontAlign'}}>
     {{text.align}}
   </button>
 <button
-  class='fancytext-sizebutton {{if (eq activeCol 1) 'focus'}}'
+  class='fancytext-sizebutton {{if (and active (eq activeCol 1)) 'focus'}}'
   tabindex=-1
   {{action 'toggleFontSize'}}>
     {{text.size}}
   </button>
 <input type=text
-       class='fancytext-input {{if (eq activeCol 2) 'focus'}}'
+       class='fancytext-input {{if (and active (eq activeCol 2)) 'focus'}}'
        tabindex=-1
        value={{text.contents}}
        onchange={{action 'change'}}
+       {{action 'selectTextInput'}}
        >
 {{else}}
 <svg width="100%"

@@ -18,7 +18,7 @@ export default Component.extend({
     'travel',
     'objects',
     'symbols',
-    'new!',
+    // 'new!',
     ],
   // not in this timeline
   temporalBlackList: [
@@ -41,7 +41,6 @@ export default Component.extend({
     if (emojis) {
       let category = get(this, 'category');
       category = alias[category] || category;
-      console.table(emojis.filterBy('category', category));
       return emojis.filterBy('category', category).filter( emoji => !get(this, 'temporalBlackList').includes(emoji.shortname) );
     }
     return [];

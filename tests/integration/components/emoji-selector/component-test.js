@@ -7,5 +7,5 @@ moduleForComponent('emoji-selector', 'Integration | Component | emoji selector',
 
 test('it renders', function(assert) {
   this.render(hbs`{{emoji-selector}}`);
-  assert.equal(this.$().text().trim(), 'Choose a Graphic');
+  assert.equal(this.$('h1').text().trim(), 'Choose a Category');
 });

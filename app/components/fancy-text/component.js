@@ -38,7 +38,7 @@ export default Component.extend({
   actions: {
     startedEditing() {
       set(this, 'isEditing', true);
-      next(() => {this.$('.fancytext-input').focus();});
+      next(() => {this.$('.fancytext-input')[0].focus();});
     },
     toggleFontSize() {
       let size = get(this, 'text.size');
@@ -49,6 +49,7 @@ export default Component.extend({
       } else {
         set(this, 'text.size', 'large');
       }
+      this.sendAction('select', get(this, 'index'), 1);
     },
     toggleFontAlign() {
       let align = get(this, 'text.align');
@@ -59,6 +60,7 @@ export default Component.extend({
       } else {
         set(this, 'text.align', 'left');
       }
+      this.sendAction('select', get(this, 'index'), 0);
     },
     change(event) {
       let newText = Object.assign(
@@ -68,6 +70,10 @@ export default Component.extend({
       );
       let index = get(this, 'index');
       this.sendAction('updateText', index, newText);
+    },
+    selectTextInput() {
+      let index = get(this, 'index');
+      this.sendAction('select', index, 2);
     }
   }
 });

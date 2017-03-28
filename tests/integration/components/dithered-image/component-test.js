@@ -7,5 +7,5 @@ moduleForComponent('dithered-image', 'Integration | Component | dithered image',
 
 test('it renders', function(assert) {
   this.render(hbs`{{dithered-image}}`);
-  assert.ok(this.$('img').length, 'Image exists');
+  assert.equal(this.$().text().trim(), '');
 });

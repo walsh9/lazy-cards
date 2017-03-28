@@ -10,6 +10,12 @@
   // overflow-y: hidden;
 }
 
+.card-creator--editing {
+  .container {
+    margin-left: 117mm;
+  }
+}
+
 @media all {
   .page {
     height: 278mm; /* Letter size */
