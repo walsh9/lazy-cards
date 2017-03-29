@@ -24,8 +24,6 @@ module.exports = function(environment) {
   };
 
   if (environment === 'development') {
-    ENV.rootURL = '/lazy-cards';
-    ENV.locationType = 'hash';
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
@@ -45,7 +43,8 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.rootURL = '/lazy-cards';
+    ENV.locationType = 'hash';
   }
 
   return ENV;

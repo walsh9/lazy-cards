@@ -18,6 +18,12 @@ module.exports = function(deployTarget) {
 
   if (deployTarget === 'production') {
     ENV.build.environment = 'production';
+    ENV.git = {
+      repo: 'git@github.com:walsh9/lazy-cards.git',
+      branch: 'gh-pages',
+      worktreePath: '/tmp/walsh9-deploy',
+      commitMessage: 'Deployed %@'
+    };
     // configure other plugins for production deploy target here
   }
 
