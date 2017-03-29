@@ -1,9 +1,9 @@
 {
-  "name": "cards",
+  "name": "lazy-cards",
   "version": "0.0.0",
-  "description": "Small description for cards goes here",
+  "description": "Web app for making awesome printable cards",
   "license": "MIT",
-  "author": "",
+  "author": "Matt Walsh",
   "directories": {
     "doc": "doc",
     "test": "tests"

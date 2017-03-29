@@ -2,7 +2,7 @@
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: 'cards',
+    modulePrefix: 'lazy-cards',
     environment: environment,
     rootURL: '/',
     locationType: 'auto',
