@@ -16,7 +16,7 @@ export default Component.extend(EKMixin, {
   size: computed('text', function() {
    //console.log(get(this, 'text.length'));
   }),
-  focusOut(e) {
+  focusOut() {
     if (document.activeElement === document.body) {
       this.focusCurrentItem();
     }
