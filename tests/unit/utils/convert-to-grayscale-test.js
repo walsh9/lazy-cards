@@ -1,5 +1,5 @@
 /* globals Uint8ClampedArray, ImageData */
-import convertToGrayscale from 'cards/utils/convert-to-grayscale';
+import convertToGrayscale from 'lazy-cards/utils/convert-to-grayscale';
 import { module, test } from 'qunit';
 
 module('Unit | Utility | convert to grayscale');

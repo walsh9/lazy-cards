@@ -1,5 +1,5 @@
 /* globals Uint8ClampedArray, ImageData */
-import dither from 'cards/utils/dither';
+import dither from 'lazy-cards/utils/dither';
 import { module, test } from 'qunit';
 
 module('Unit | Utility | dither');

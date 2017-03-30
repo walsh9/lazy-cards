@@ -1,6 +1,6 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
-import Page from 'cards/lib/page';
+import Page from 'lazy-cards/lib/page';
 
 moduleForComponent('card-face', 'Integration | Component | card face', {
   integration: true

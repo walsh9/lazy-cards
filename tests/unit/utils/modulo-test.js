@@ -1,4 +1,4 @@
-import modulo from 'cards/utils/modulo';
+import modulo from 'lazy-cards/utils/modulo';
 import { module, test } from 'qunit';
 
 module('Unit | Utility | modulo');

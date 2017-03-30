@@ -1,4 +1,4 @@
-import loadImageData from 'cards/utils/load-image-data';
+import loadImageData from 'lazy-cards/utils/load-image-data';
 import { module, test } from 'qunit';
 
 module('Unit | Utility | load image data');

@@ -1,4 +1,4 @@
-import { classFor } from 'cards/helpers/class-for';
+import { classFor } from 'lazy-cards/helpers/class-for';
 import { module, test } from 'qunit';
 
 module('Unit | Helper | class for');
