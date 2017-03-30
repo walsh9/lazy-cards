@@ -2,7 +2,6 @@ import Component from 'ember-component';
 import computed, { readOnly } from 'ember-computed';
 import get from 'ember-metal/get';
 import { htmlSafe } from 'ember-string';
-import ENV from 'lazy-cards/config/environment';
 import service from 'ember-service/inject';
 
 export default Component.extend({
