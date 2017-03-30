@@ -43,6 +43,9 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
+    ENV.ifa = {
+      enabled: true
+    };
     ENV.rootURL = '/lazy-cards';
     ENV.locationType = 'hash';
   }

@@ -34,26 +34,26 @@
   }
   &--hearts {
     @include image-border;
-    border-image-source: url('/assets/borders/2764.png');
+    border-image-source: url('./borders/2764.png');
   }
   &--diamonds {
     @include image-border;
-    border-image-source: url('/assets/borders/1f536.png');
+    border-image-source: url('./borders/1f536.png');
   }
   &--stars {
     @include image-border;
-    border-image-source: url('/assets/borders/2b50.png');
+    border-image-source: url('./borders/2b50.png');
   }
   &--paw-prints {
     @include image-border;
-    border-image-source: url('/assets/borders/1f43e.png');
+    border-image-source: url('./borders/1f43e.png');
   }
   &--music-notes {
     @include image-border;
-    border-image-source: url('/assets/borders/1f3b6.png');
+    border-image-source: url('./borders/1f3b6.png');
   }
   &--floral {
     @include image-border;
-    border-image-source: url('/assets/borders/1f338.png');
+    border-image-source: url('./borders/1f338.png');
   }
 }

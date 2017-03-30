@@ -2,9 +2,11 @@ import Component from 'ember-component';
 import computed, { readOnly } from 'ember-computed';
 import get from 'ember-metal/get';
 import { htmlSafe } from 'ember-string';
-import ENV from 'lazy-cards/config/environment'
+import ENV from 'lazy-cards/config/environment';
+import service from 'ember-service/inject';
 
 export default Component.extend({
+  assetMap: service('asset-map'),
   classNames: ['cardface'],
   classNameBindings: ['isSelected:cardface--selected', 'borderClass'],
   data: null,
@@ -44,7 +46,8 @@ export default Component.extend({
   graphicUrl: computed('graphic', function() {
     let graphic = get(this, 'graphic');
     if (graphic) {
-      return `${ENV.rootURL}assets/png_512x512/${get(graphic, 'unicode')}.png`;
+      let url =`assets/png_512x512/${get(graphic, 'unicode')}.png`;
+      return this.get('assetMap').resolve(url);
     }
     return '';
   }),

@@ -24,6 +24,15 @@ module.exports = function(deployTarget) {
       worktreePath: '/tmp/walsh9-deploy',
       commitMessage: 'Deployed %@'
     };
+    ENV.sh = {
+      hooks: {
+        willBuild: [
+          {
+            command: 'create_borders.sh',
+          }
+        ]
+      }
+    };
     // configure other plugins for production deploy target here
   }
 

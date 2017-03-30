@@ -4,6 +4,11 @@ var Funnel = require('broccoli-funnel');
 
 module.exports = function(defaults) {
   var app = new EmberApp(defaults, {
+    fingerprint: {
+      enabled: true,
+      generateAssetMap: true,
+      fingerprintAssetMap: true
+    },
     nodeAssets: {
       'emojione': {
         srcDir: 'assets',
