@@ -2,7 +2,10 @@ import Component from '@ember/component';
 
 export default Component.extend({
   classNames: ['border-selector'],
-  borders: [],
+  init() {
+    this._super(...arguments);
+    this.borders = this.borders || [];
+  },
   actions: {
     chooseBorder(border) {
       this.sendAction('selectBorder', border);

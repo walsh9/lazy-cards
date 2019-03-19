@@ -12,7 +12,7 @@ export default Component.extend({
   active: null,
   text: null,
   index: null,
-  textClasses: computed('text.size', 'text.align', 'text.style', function() {
+  textClasses: computed('text.{size,align,style}', function() {
     let {size, align, style} = get(this, 'text');
     let classes = `text-size--${size} text-align--${align} text-style--${style}`;
     return htmlSafe(classes);

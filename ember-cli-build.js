@@ -6,7 +6,7 @@ var Funnel = require('broccoli-funnel');
 module.exports = function(defaults) {
   var app = new EmberApp(defaults, {
     fingerprint: {
-      enabled: true,
+      enabled: false,
       generateAssetMap: true,
       fingerprintAssetMap: true
     },

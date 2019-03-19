@@ -15,9 +15,10 @@ module.exports = {
     browser: true
   },
   rules: {
+    'ember/closure-actions': 'off'
   },
   globals: {
-    "Uint8ClampedArray": true
+    'Uint8ClampedArray': true
   },
   overrides: [
     // node files

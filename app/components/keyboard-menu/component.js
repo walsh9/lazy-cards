@@ -14,7 +14,15 @@ export default Component.extend(EKMixin, EKOnInsertMixin, {
   attributeBindings: ['role'],
   role: 'menu',
   classNames: ['keyboardmenu'],
-  options: [],
+  init() {
+    this._super(...arguments);
+    this.options = this.options || [];
+    this.elementGrid = this.elementGrid || {
+      grid: [],
+      width: 0,
+      height: 0,
+    };
+  },
   actions: {
     select: function(index) {
       if (index !== get(this, 'currentIndex')) {
@@ -29,7 +37,6 @@ export default Component.extend(EKMixin, EKOnInsertMixin, {
   },
   currentIndex: 0,
   itemSelector: 'li',
-  elementGrid: {grid: [], width: 0, height: 0},
   didReceiveAttrs() {
     scheduleOnce('afterRender', this, function() {
       let itemSelector = get(this, 'itemSelector');

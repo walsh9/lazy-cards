@@ -11,31 +11,34 @@ export default Component.extend({
   emojis: null,
   category: null,
   choosingGraphics: false,
-  categoryList: [
-    'people',
-    'nature',
-    'food',
-    'activity',
-    'travel',
-    'objects',
-    'symbols',
-    // 'new!',
-    ],
-  // not in this timeline
-  temporalBlackList: [
-    ':iphone:',
-    ':calling:',
-    ':desktop:',
-    ':euro:',
-    ':mobile_phone_off:',
-    ':vibration_mode:',
-    ':no_mobile_phones:',
-    ':selfie_tone1:',
-    ':selfie_tone2:',
-    ':selfie_tone3:',
-    ':selfie_tone4:',
-    ':selfie_tone5:',
-    ],
+  init() {
+    this._super(...arguments);
+    this.categoryList = this.categoryList || [
+      'people',
+      'nature',
+      'food',
+      'activity',
+      'travel',
+      'objects',
+      'symbols',
+      // 'new!',
+    ];
+    // not in this timeline
+    this.temporalBlackList = this.temporalBlackList || [
+      ':iphone:',
+      ':calling:',
+      ':desktop:',
+      ':euro:',
+      ':mobile_phone_off:',
+      ':vibration_mode:',
+      ':no_mobile_phones:',
+      ':selfie_tone1:',
+      ':selfie_tone2:',
+      ':selfie_tone3:',
+      ':selfie_tone4:',
+      ':selfie_tone5:',
+    ];
+  },
   emojiList: computed('emojis', 'category', function() {
     let alias = {'new!': 'unicode9'};
     let emojis = get(this, 'emojis');
