@@ -18,7 +18,7 @@ module.exports = {
   },
   globals: {
     "Uint8ClampedArray": true
-  }
+  },
   overrides: [
     // node files
     {
