@@ -1,15 +1,15 @@
-import get, { getProperties } from 'ember-metal/get';
-import set from 'ember-metal/set';
-import computed from 'ember-computed';
-import { scheduleOnce } from 'ember-runloop';
-import on from 'ember-evented/on';
+import Component from '@ember/component';
+import $ from 'jquery';
+import { get, getProperties } from '@ember/object';
+import { set } from '@ember/object';
+import { computed } from '@ember/object';
+import { scheduleOnce } from '@ember/runloop';
+import { on } from '@ember/object/evented';
 import { EKMixin, EKOnInsertMixin, keyDown } from 'ember-keyboard';
 import modulo from '../../utils/modulo';
-import Ember from 'ember';
 import scrollParent from 'npm:scrollparent';
-let { $ } = Ember;
 
-export default Ember.Component.extend(EKMixin, EKOnInsertMixin, {
+export default Component.extend(EKMixin, EKOnInsertMixin, {
   tagName: 'ul',
   attributeBindings: ['role'],
   role: 'menu',

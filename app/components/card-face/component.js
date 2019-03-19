@@ -1,8 +1,9 @@
-import Component from 'ember-component';
-import computed, { readOnly } from 'ember-computed';
-import get from 'ember-metal/get';
-import { htmlSafe } from 'ember-string';
-import service from 'ember-service/inject';
+import Component from '@ember/component';
+import { computed } from '@ember/object';
+import { readOnly } from '@ember/object/computed';
+import { get } from '@ember/object';
+import { htmlSafe } from '@ember/string';
+import { inject as service } from '@ember/service';
 
 export default Component.extend({
   assetMap: service('asset-map'),

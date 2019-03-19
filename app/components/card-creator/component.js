@@ -1,10 +1,10 @@
-import Component from 'ember-component';
-import get from 'ember-metal/get';
-import set from 'ember-metal/set';
-import computed from 'ember-computed';
+import Component from '@ember/component';
+import { get } from '@ember/object';
+import { set } from '@ember/object';
+import { computed } from '@ember/object';
 import Page from '../../lib/page';
 import { borders, fonts } from '../../lib/settings';
-import { next } from 'ember-runloop';
+import { next } from '@ember/runloop';
 
 export default Component.extend({
   frontData: null,

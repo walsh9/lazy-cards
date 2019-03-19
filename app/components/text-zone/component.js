@@ -1,9 +1,10 @@
-import Component from 'ember-component';
-import set from 'ember-metal/set';
-import get from 'ember-metal/get';
-import computed, { readOnly } from 'ember-computed';
-import on from 'ember-evented/on';
-import { next } from 'ember-runloop';
+import Component from '@ember/component';
+import { set } from '@ember/object';
+import { get } from '@ember/object';
+import { computed } from '@ember/object';
+import { readOnly } from '@ember/object/computed';
+import { on } from '@ember/object/evented';
+import { next } from '@ember/runloop';
 import { EKMixin, keyDown } from 'ember-keyboard';
 import modulo from '../../utils/modulo';
 

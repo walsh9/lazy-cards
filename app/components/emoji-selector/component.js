@@ -1,9 +1,10 @@
-import Ember from 'ember';
-import Component from 'ember-component';
-import computed from 'ember-computed';
+import { A } from '@ember/array';
+import $ from 'jquery';
+import Component from '@ember/component';
+import { computed } from '@ember/object';
 import emojione from 'npm:emojione';
-import get from 'ember-metal/get';
-import set from 'ember-metal/set';
+import { get } from '@ember/object';
+import { set } from '@ember/object';
 
 export default Component.extend({
   classNames: ['emoji-selector'],
@@ -47,14 +48,14 @@ export default Component.extend({
   }),
   didReceiveAttrs() {
     let component = this;
-    Ember.$.getJSON('emoji.json').then((data) => {
+    $.getJSON('emoji.json').then((data) => {
       let emojiList = Object.keys(data).map(key => {
         return Object.assign({}, data[key], {
           id: key,
           character: emojione.shortnameToUnicode(key),
         });
       }).sort((a,b) => Number(a.emoji_order) - Number(b.emoji_order));
-      set(component, 'emojis', Ember.A(emojiList));
+      set(component, 'emojis', A(emojiList));
     });
   },
   actions: {

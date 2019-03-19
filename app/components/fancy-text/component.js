@@ -1,9 +1,9 @@
-import Component from 'ember-component';
-import computed from 'ember-computed';
-import set from 'ember-metal/set';
-import get from 'ember-metal/get';
-import { htmlSafe } from 'ember-string';
-import { next } from 'ember-runloop';
+import Component from '@ember/component';
+import { computed } from '@ember/object';
+import { set } from '@ember/object';
+import { get } from '@ember/object';
+import { htmlSafe } from '@ember/string';
+import { next } from '@ember/runloop';
 
 export default Component.extend({
   isEditing: false,

@@ -1,5 +1,5 @@
-import EmberObject from 'ember-object';
-import set from 'ember-metal/set';
+import EmberObject from '@ember/object';
+import { set } from '@ember/object';
 
 const defaults = {
   size:     'medium',

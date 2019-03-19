@@ -1,6 +1,6 @@
-import EmberObject from 'ember-object';
-import get from 'ember-metal/get';
-import set from 'ember-metal/set';
+import EmberObject from '@ember/object';
+import { get } from '@ember/object';
+import { set } from '@ember/object';
 import TextRow from './text-row';
 
 const defaults = {

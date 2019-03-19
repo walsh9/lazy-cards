@@ -1,6 +1,6 @@
-import Component from 'ember-component';
-import get from 'ember-metal/get';
-import set from 'ember-metal/set';
+import Component from '@ember/component';
+import { get } from '@ember/object';
+import { set } from '@ember/object';
 import loadImageData from '../../utils/load-image-data';
 import dither from '../../utils/dither';
 
