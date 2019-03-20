@@ -1,30 +1,34 @@
-{{#if this.choosingGraphics}}
-  <h1 class="emoji-graphic-selector__header">Choose a Graphic</h1>
-  <KeyboardMenu
-    class="emoji-graphic-selector__list"
-    @keyboardPriority="1"
-    @options={{this.emojiList}}
-    @selectAction={{action "setGraphic"}}
-    @cancelAction={{action "cancelGraphicSelect"}}
-    as |currentIndex select|>
-    {{#each this.emojiList as |emoji index|}}
-      <li role="button" class="emoji-graphic-selector__item {{if (eq index currentIndex) "focus"}}"
-        {{action select index}}>
-        <div class="emoji emojione emojione-{{emoji.unicode}}"></div>
-      </li>
-    {{/each}}
-  </KeyboardMenu>
-{{else}}
-  <h1 class="emoji-category-selector__heading">Choose a Category</h1>
-  <KeyboardMenu
-    class="emoji-category-selector__list"
-    @keyboardPriority="1"
-    @options={{this.categoryList}}
-    @selectAction={{action "setCategory"}}
-    @cancelAction={{action @menuCancelAction}}
-    as |currentIndex select|>
-    {{#each this.categoryList as |category index|}}
-      <li role="button" class="emoji-category-selector__item {{if (eq index currentIndex) "focus"}}" {{action select category}}>{{category}}</li>
-    {{/each}}
-  </KeyboardMenu>
-{{/if}}
+<div class="emoji-selector">
+  {{#if this.choosingGraphics}}
+    <div class="emoji-graphic-selector">
+      <h1 class="emoji-graphic-selector__header">Choose a Graphic</h1>
+      <KeyboardMenu
+        class="emoji-graphic-selector__list"
+        @keyboardPriority="1"
+        @options={{this.emojiList}}
+        @selectAction={{this.setGraphic}}
+        @cancelAction={{this.cancelGraphicSelect}}
+        as |currentIndex select|>
+        {{#each this.emojiList as |emoji index|}}
+          <li role="button" class="emoji-graphic-selector__item {{if (eq index currentIndex) "focus"}}"
+            {{action select index}}>
+            <div class="emoji emojione emojione-{{emoji.unicode}}"></div>
+          </li>
+        {{/each}}
+      </KeyboardMenu>
+    </div>
+  {{else}}
+    <h1 class="emoji-category-selector__heading">Choose a Category</h1>
+    <KeyboardMenu
+      class="emoji-category-selector__list"
+      @keyboardPriority="1"
+      @options={{this.categoryList}}
+      @selectAction={{this.setCategory}}
+      @cancelAction={{action @menuCancelAction}}
+      as |currentIndex select|>
+      {{#each this.categoryList as |category index|}}
+        <li role="button" class="emoji-category-selector__item {{if (eq index currentIndex) "focus"}}" {{action select category}}>{{category}}</li>
+      {{/each}}
+    </KeyboardMenu>
+  {{/if}}
+</div>

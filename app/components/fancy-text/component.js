@@ -1,7 +1,6 @@
 import Component from '@ember/component';
 import { computed } from '@ember/object';
 import { set } from '@ember/object';
-import { get } from '@ember/object';
 import { htmlSafe } from '@ember/string';
 import { next } from '@ember/runloop';
 
@@ -18,22 +17,20 @@ export default Component.extend({
     return htmlSafe(classes);
   }),
   textAnchorX: computed('text.align', function() {
-    let align = get(this, 'text.align');
     let anchorX = {
       left: '0',
       center: '50%',
       right: '100%'
     };
-    return anchorX[align];
+    return anchorX[this.text.align];
   }),
   textAnchorY: computed('text.size', function() {
-    let size = get(this, 'text.size');
     let anchorY = {
       small: '32px',
       medium: '48px',
       large: '64px'
     };
-    return anchorY[size];
+    return anchorY[this.text.size];
   }),
   actions: {
     startedEditing() {
@@ -41,7 +38,7 @@ export default Component.extend({
       next(() => {this.$('.fancytext-input')[0].focus();});
     },
     toggleFontAlign() {
-      let align = get(this, 'text.align');
+      let align = this.text.align;
       if (align === 'left') {
         set(this, 'text.align', 'center');
       } else if (align === 'center') {
@@ -52,7 +49,7 @@ export default Component.extend({
       this.select(this.index, 0);
     },
     toggleFontSize() {
-      let size = get(this, 'text.size');
+      let size = this.text.size;
       if (size === 'large') {
         set(this, 'text.size', 'small');
       } else if (size === 'small') {

@@ -1,7 +1,7 @@
 <KeyboardMenu class="mainmenu"
   @keyboardPriority="0"
   @options={{this.options}}
-  @selectAction={{action this.selectAction}}
+  @selectAction={{action @selectAction}}
   as |currentIndex select|>
   {{#each this.options as |option index|}}
     <li

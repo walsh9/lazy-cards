@@ -1,8 +1,10 @@
-import Component from '@ember/component';
-import { computed } from '@ember/object';
+import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
 
-export default Component.extend({
-  options: computed('selectedFace', 'settings', function() {
+export default class MainMenu extends Component {
+  @tracked selectedFace;
+
+  get options() {
     let selectedFace = this.selectedFace;
     if (selectedFace === 'front') {
       return [
@@ -27,5 +29,5 @@ export default Component.extend({
         { label: 'Print',               value: ['print'] },
       ];
     }
-  }),
-});
+  }
+}
