@@ -1,13 +1,30 @@
 {{#if this.choosingGraphics}}
-  <EmojiSelectorGraphics
-    @emojiList={{this.emojiList}}
-    @graphicSelectAction={{action "setGraphic"}}
-    @cancelAction={{action "cancel"}}
-  />
+  <h1 class="emoji-graphic-selector__header">Choose a Graphic</h1>
+  <KeyboardMenu
+    class="emoji-graphic-selector__list"
+    @keyboardPriority="1"
+    @options={{this.emojiList}}
+    @selectAction={{action "setGraphic"}}
+    @cancelAction={{action "cancelGraphicSelect"}}
+    as |currentIndex select|>
+    {{#each this.emojiList as |emoji index|}}
+      <li role="button" class="emoji-graphic-selector__item {{if (eq index currentIndex) "focus"}}"
+        {{action select index}}>
+        <div class="emoji emojione emojione-{{emoji.unicode}}"></div>
+      </li>
+    {{/each}}
+  </KeyboardMenu>
 {{else}}
-  <EmojiSelectorCategories
-    @categoryList={{this.categoryList}}
-    @categorySelectAction={{action "setCategory"}}
+  <h1 class="emoji-category-selector__heading">Choose a Category</h1>
+  <KeyboardMenu
+    class="emoji-category-selector__list"
+    @keyboardPriority="1"
+    @options={{this.categoryList}}
+    @selectAction={{action "setCategory"}}
     @cancelAction={{action this.menuCancelAction}}
-  />
+    as |currentIndex select|>
+    {{#each this.categoryList as |category index|}}
+      <li role="button" class="emoji-category-selector__item {{if (eq index currentIndex) "focus"}}" {{action select category}}>{{category}}</li>
+    {{/each}}
+  </KeyboardMenu>
 {{/if}}

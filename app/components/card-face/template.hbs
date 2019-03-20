@@ -1,5 +1,5 @@
 {{#each this.graphics as |graphic index|}}
-  <div class="graphic {{class-for "graphic" size}} i{{index}}">
+  <div class="graphic {{class-for "graphic" this.size}} i{{index}}">
     <DitheredImage
       @width={{this.graphicSize}}
       @height={{this.graphicSize}}

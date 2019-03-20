@@ -69,7 +69,7 @@ export default Component.extend({
       set(this, 'choosingGraphics', false);
       this.emojiSelectAction(emoji);
     },
-    cancel() {
+    cancelGraphicSelect() {
       set(this, 'choosingGraphics', false);
     }
   }
