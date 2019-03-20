@@ -7,7 +7,7 @@ import { scheduleOnce } from '@ember/runloop';
 import { on } from '@ember/object/evented';
 import { EKMixin, EKOnInsertMixin, keyDown } from 'ember-keyboard';
 import modulo from '../../utils/modulo';
-import scrollParent from 'npm:scrollparent';
+import scrollParent from 'scrollparent';
 
 export default Component.extend(EKMixin, EKOnInsertMixin, {
   tagName: 'ul',
