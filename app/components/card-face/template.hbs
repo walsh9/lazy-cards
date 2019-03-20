@@ -1,13 +1,20 @@
-{{#each graphics as |graphic index|}}
+{{#each this.graphics as |graphic index|}}
   <div class="graphic {{class-for "graphic" size}} i{{index}}">
-    {{dithered-image width=graphicSize height=graphicSize src=graphicUrl ditherMethod="sierra" enabled=enabled}}
+    <DitheredImage
+      @width={{this.graphicSize}}
+      @height={{this.graphicSize}}
+      @src={{this.graphicUrl}}
+      @ditherMethod="sierra"
+      @enabled={{this.enabled}}
+    />
   </div>
 {{/each}}
 
 
-{{text-zone
-  active=(eq editMode "text")
-  font=font
-  text=data.text
-  updateText=(action updateText)
-  doneEditing=(action doneEditing)}}
+<TextZone
+  @active={{eq this.editMode "text"}}
+  @font={{this.font}}
+  @text={{this.data.text}}
+  @updateText={{action this.updateText}}
+  @doneEditing={{action this.doneEditing}}
+/>

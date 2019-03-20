@@ -1,15 +1,15 @@
-{{#keyboard-menu class="mainmenu"
-  keyboardPriority=0
-  options=options
-  selectAction=(action selectAction)
-  as |currentIndex select|}}
-  {{#each options as |option index|}}
+<KeyboardMenu class="mainmenu"
+  @keyboardPriority="0"
+  @options={{this.options}}
+  @selectAction={{action this.selectAction}}
+  as |currentIndex select|>
+  {{#each this.options as |option index|}}
     <li
-      class="mainmenu-item keyboardmenu-item {{if (eq index currentIndex) "focus"}} {{class-for classPrefix option.value}}"
+      class="mainmenu-item keyboardmenu-item {{if (eq index currentIndex) "focus"}} {{class-for this.classPrefix option.value}}"
       role="menuitem"
       tabindex="-1"
       {{action select index}}>
       {{option.label}}
     </li>
   {{/each}}
-{{/keyboard-menu}}
+</KeyboardMenu>

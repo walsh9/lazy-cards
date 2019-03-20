@@ -1,6 +1,5 @@
 import Component from '@ember/component';
 import $ from 'jquery';
-import { get, getProperties } from '@ember/object';
 import { set } from '@ember/object';
 import { computed } from '@ember/object';
 import { scheduleOnce } from '@ember/runloop';
@@ -58,18 +57,15 @@ export default Component.extend(EKMixin, EKOnInsertMixin, {
     });
   },
   currentItem: computed('currentIndex', 'options', function() {
-    let {currentIndex, options} = getProperties(this, 'currentIndex', 'options');
-    return options[currentIndex];
+    return this.options[this.currentIndex];
   }),
   currentElement: computed('currentPos', 'elementGrid', function() {
-    let {currentPos, elementGrid} = getProperties(this, 'currentPos', 'elementGrid');
-    let {x, y} = currentPos;
-    return elementGrid.grid[x][y].itemEl;
+    let {x, y} = this.currentPos;
+    return this.elementGrid.grid[x][y].itemEl;
   }),
   currentPos: computed('currentIndex', 'elementGrid', {
     get() {
-      let {currentIndex, elementGrid} = getProperties(this, 'currentIndex', 'elementGrid');
-      return this._indexToPos(currentIndex, elementGrid);
+      return this._indexToPos(this.currentIndex, this.elementGrid);
     },
     set(pos) {
       let grid = this.elementGrid;
@@ -90,17 +86,14 @@ export default Component.extend(EKMixin, EKOnInsertMixin, {
     return this._getRelativeIndex({x: 0, y: 1});
   }),
   next: computed('currentIndex', 'elementGrid', function() {
-    let {currentIndex, options} = getProperties(this, 'currentIndex', 'options');
-    return modulo((currentIndex + 1), options.length);
+    return modulo((this.currentIndex + 1), this.options.length);
   }),
   prev: computed('currentIndex', 'elementGrid', function() {
-    let {currentIndex, options} = getProperties(this, 'currentIndex', 'options');
-    return modulo((currentIndex - 1), options.length);
+    return modulo((this.currentIndex - 1), this.options.length);
   }),
   chooseCurrent: on(keyDown('Enter'), keyDown('Space'), function(event) {
     event.preventDefault();
-    let currentIndex = this.currentIndex;
-    this.send('select', this._getItem(currentIndex).index);
+    this.send('select', this._getItem(this.currentIndex).index);
   }),
   selectLeft: on(keyDown('ArrowLeft'), function(event) {
     this._moveViaKeyboard('left', event);
@@ -126,7 +119,7 @@ export default Component.extend(EKMixin, EKOnInsertMixin, {
   }),
   _moveViaKeyboard(targetName, event) {
     event.preventDefault();
-    set(this, 'currentIndex', this._getItem(get(this, targetName)).index);
+    set(this, 'currentIndex', this._getItem(this[targetName]).index);
     this._scrollIntoView(this.currentElement);
   },
   _getItem(index) {
@@ -137,12 +130,11 @@ export default Component.extend(EKMixin, EKOnInsertMixin, {
   _getRelativePos(deltaPos) {
     // delta.x and delta.y should only be -1, 0, or 1
 
-    let {currentPos, elementGrid} = getProperties(this, 'currentPos', 'elementGrid');
-    let x = modulo((currentPos.x + deltaPos.x), elementGrid.width);
-    let y = modulo((currentPos.y + deltaPos.y), elementGrid.height);
-    while (!elementGrid.grid[x][y]) {
-      x = modulo((x + deltaPos.x), elementGrid.width);
-      y = modulo((y + deltaPos.y), elementGrid.height);
+    let x = modulo((this.currentPos.x + deltaPos.x), this.elementGrid.width);
+    let y = modulo((this.currentPos.y + deltaPos.y), this.elementGrid.height);
+    while (!this.elementGrid.grid[x][y]) {
+      x = modulo((x + deltaPos.x), this.elementGrid.width);
+      y = modulo((y + deltaPos.y), this.elementGrid.height);
     }
     return {x, y};
   },

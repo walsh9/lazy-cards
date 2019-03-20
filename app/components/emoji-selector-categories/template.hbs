@@ -1,12 +1,13 @@
 <h1 class="emoji-category-selector__heading">Choose a Category</h1>
 
-{{#keyboard-menu class="emoji-category-selector__list"
-  keyboardPriority=1
-  options=categoryList
-  selectAction=(action categorySelectAction)
-  cancelAction=(action cancelAction)
-  as |currentIndex select|}}
-  {{#each categoryList as |category index|}}
+<KeyboardMenu
+  class="emoji-category-selector__list"
+  @keyboardPriority="1"
+  @options={{this.categoryList}}
+  @selectAction={{action this.categorySelectAction}}
+  @cancelAction={{action this.cancelAction}}
+  as |currentIndex select|>
+  {{#each this.categoryList as |category index|}}
     <li role="button" class="emoji-category-selector__item {{if (eq index currentIndex) "focus"}}" {{action select category}}>{{category}}</li>
   {{/each}}
-{{/keyboard-menu}}
+</KeyboardMenu>

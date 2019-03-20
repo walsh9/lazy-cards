@@ -1,46 +1,60 @@
-<h1>Card Creator: {{selectedFace}}</h1>
-<h2 class="help">{{helpText}}</h2>
+<h1>Card Creator: {{this.selectedFace}}</h1>
+<h2 class="help">{{this.helpText}}</h2>
 
 <div class="main">
-  {{#unless editMode}}
-    {{main-menu
-      selectAction=(action "mainmenuSelect")
-      selectedFace=selectedFace}}
+  {{#unless this.editMode}}
+    <MainMenu
+      @selectAction={{action "mainmenuSelect"}}
+      @selectedFace={{this.selectedFace}}
+    />
   {{/unless}}
   <div class="container">
     <div class="page">
-      {{card-face
+      <CardFace
         class="cardface--front"
-        data=frontData
-        isSelected=(eq selectedFace "front")
-        editMode=editMode
-        updateText=(action "setText")
-        doneEditing=(action "endEditMode")}}
-      {{card-face
+        @data={{this.frontData}}
+        @isSelected={{eq this.selectedFace "front"}}
+        @editMode={{this.editMode}}
+        @updateText={{action "setText"}}
+        @doneEditing={{action "endEditMode"}}
+      />
+      <CardFace
         class="cardface--inside"
-        data=insideData
-        isSelected=(eq selectedFace "inside")
-        editMode=editMode
-        updateText=(action "setText")
-        doneEditing=(action "endEditMode")}}
+        @data={{this.insideData}}
+        @isSelected={{eq this.selectedFace "inside"}}
+        @editMode={{this.editMode}}
+        @updateText={{action "setText"}}
+        @doneEditing={{action "endEditMode"}}
+      />
     </div>
   </div>
 </div>
 
-{{#if (eq openModal "border-selector")}}
+{{#if (eq this.openModal "border-selector")}}
   <div class="modal">
-    {{border-selector borders=borders borderSelectAction=(action "setBorder") menuCancelAction=(action "closeModal")}}
+    <BorderSelector
+      @borders={{this.borders}}
+      @borderSelectAction={{action "setBorder"}}
+      @menuCancelAction={{action "closeModal"}}
+    />
   </div>
 {{/if}}
 
-{{#if (eq openModal "emoji-selector")}}
+{{#if (eq this.openModal "emoji-selector")}}
   <div class="modal">
-    {{emoji-selector emojiSelectAction=(action "setEmoji") menuCancelAction=(action "closeModal")}}
+    <EmojiSelector
+      @emojiSelectAction={{action "setEmoji"}}
+      @menuCancelAction={{action "closeModal"}}
+    />
   </div>
 {{/if}}
 
-{{#if (eq openModal "font-selector")}}
+{{#if (eq this.openModal "font-selector")}}
   <div class="modal">
-    {{font-selector fonts=fonts fontSelectAction=(action "setFont") menuCancelAction=(action "closeModal")}}
+    <FontSelector
+      @fonts={{this.fonts}}
+      @fontSelectAction={{action "setFont"}}
+      @menuCancelAction={{action "closeModal"}}
+    />
   </div>
 {{/if}}

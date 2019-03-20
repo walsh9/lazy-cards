@@ -1,11 +1,13 @@
-{{#if choosingGraphics}}
-  {{emoji-selector-graphics
-    emojiList=emojiList
-    graphicSelectAction=(action "setGraphic")
-    cancelAction=(action "cancel")}}
+{{#if this.choosingGraphics}}
+  <EmojiSelectorGraphics
+    @emojiList={{this.emojiList}}
+    @graphicSelectAction={{action "setGraphic"}}
+    @cancelAction={{action "cancel"}}
+  />
 {{else}}
-  {{emoji-selector-categories
-    categoryList=categoryList
-    categorySelectAction=(action "setCategory")
-    cancelAction=(action menuCancelAction)}}
+  <EmojiSelectorCategories
+    @categoryList={{this.categoryList}}
+    @categorySelectAction={{action "setCategory"}}
+    @cancelAction={{action this.menuCancelAction}}
+  />
 {{/if}}

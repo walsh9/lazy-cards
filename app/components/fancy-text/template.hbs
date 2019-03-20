@@ -1,35 +1,36 @@
-{{#if editing}}
+{{#if this.editing}}
   <button
-    class="fancytext-alignbutton {{if (and active (eq activeCol 0)) "focus"}}"
+    class="fancytext-alignbutton {{if (and this.active (eq this.activeCol 0)) "focus"}}"
     tabindex="-1"
     {{action "toggleFontAlign"}}>
-    {{text.align}}
+    {{this.text.align}}
   </button>
   <button
-    class="fancytext-sizebutton {{if (and active (eq activeCol 1)) "focus"}}"
+    class="fancytext-sizebutton {{if (and this.active (eq this.activeCol 1)) "focus"}}"
     tabindex="-1"
     {{action "toggleFontSize"}}>
-    {{text.size}}
+    {{this.text.size}}
   </button>
   <input
     type="text"
-    class="fancytext-input {{if (and active (eq activeCol 2)) "focus"}}"
+    class="fancytext-input {{if (and this.active (eq this.activeCol 2)) "focus"}}"
     tabindex="-1"
-    value={{text.contents}}
+    value={{this.text.contents}}
     onchange={{action "change"}}
     {{action "selectTextInput"}}
     >
 {{else}}
   <svg width="100%"
+    title={{this.text.contents}}
     class={{concat "fancytext-outer"}}>
-    <text class="fancytext-back" x={{textAnchorX}} y={{textAnchorY}}>
-      {{text.contents}}
+    <text class="fancytext-back" x={{this.textAnchorX}} y={{this.textAnchorY}}>
+      {{this.text.contents}}
     </text>
-    <text class="fancytext-middle" x={{textAnchorX}} y={{textAnchorY}}>
-      {{text.contents}}
+    <text class="fancytext-middle" x={{this.textAnchorX}} y={{this.textAnchorY}}>
+      {{this.text.contents}}
     </text>
-    <text class="fancytext-front" x={{textAnchorX}} y={{textAnchorY}}>
-      {{text.contents}}
+    <text class="fancytext-front" x={{this.textAnchorX}} y={{this.textAnchorY}}>
+      {{this.text.contents}}
     </text>
   </svg>
 {{/if}}
