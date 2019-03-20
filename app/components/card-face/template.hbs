@@ -5,16 +5,15 @@
       @height={{this.graphicSize}}
       @src={{this.graphicUrl}}
       @ditherMethod="sierra"
-      @enabled={{this.enabled}}
     />
   </div>
 {{/each}}
 
 
 <TextZone
-  @active={{eq this.editMode "text"}}
+  @active={{eq @editMode "text"}}
   @font={{this.font}}
-  @text={{this.data.text}}
-  @updateText={{action this.updateText}}
-  @doneEditing={{action this.doneEditing}}
+  @text={{@data.text}}
+  @updateText={{action @updateText}}
+  @doneEditing={{action @doneEditing}}
 />

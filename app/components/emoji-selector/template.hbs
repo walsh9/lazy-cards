@@ -21,7 +21,7 @@
     @keyboardPriority="1"
     @options={{this.categoryList}}
     @selectAction={{action "setCategory"}}
-    @cancelAction={{action this.menuCancelAction}}
+    @cancelAction={{action @menuCancelAction}}
     as |currentIndex select|>
     {{#each this.categoryList as |category index|}}
       <li role="button" class="emoji-category-selector__item {{if (eq index currentIndex) "focus"}}" {{action select category}}>{{category}}</li>

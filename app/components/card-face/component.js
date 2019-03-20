@@ -9,7 +9,6 @@ export default Component.extend({
   assetMap: service('asset-map'),
   classNames: ['cardface'],
   classNameBindings: ['isSelected:cardface--selected', 'borderClass'],
-  data: null,
   isSelected: null,
   graphic:         readOnly('data.graphic'),
   font:            readOnly('data.font'),
