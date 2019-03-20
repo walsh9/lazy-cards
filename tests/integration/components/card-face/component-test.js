@@ -1,14 +1,16 @@
-import { moduleForComponent, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render, findAll } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 import Page from 'lazy-cards/lib/page';
 
-moduleForComponent('card-face', 'Integration | Component | card face', {
-  integration: true
-});
+module('Integration | Component | card face', function(hooks) {
+  setupRenderingTest(hooks);
 
-test('it renders', function(assert) {
-  this.set('data', Page.create());
-  this.render(hbs`{{card-face data=data}}`);
-  assert.ok(this.$('.graphic').length, 'Graphics exist');
-  assert.ok(this.$('.text').length, 'Text exists');
+  test('it renders', async function(assert) {
+    this.set('data', Page.create());
+    await render(hbs`{{card-face data=data}}`);
+    assert.ok(findAll('.graphic').length, 'Graphics exist');
+    assert.ok(findAll('.text').length, 'Text exists');
+  });
 });

@@ -11,10 +11,10 @@ export default Component.extend({
   ditherMethod: null,
   finalImage: null,
   didReceiveAttrs() {
-    let source = get(this, 'src');
-    let width =  get(this, 'width');
-    let height =  get(this, 'height');
-    let ditherMethod = get(this, 'ditherMethod');
+    let source = this.src;
+    let width =  this.width;
+    let height =  this.height;
+    let ditherMethod = this.ditherMethod;
     let component = this;
     set(component, 'finalImage', null);
     loadImageData(source, width, height)

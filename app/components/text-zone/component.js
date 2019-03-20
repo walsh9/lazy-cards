@@ -42,28 +42,28 @@ export default Component.extend(EKMixin, {
     }
   },
   currentItem: computed('activeRow', 'activeCol', function() {
-    let activeRow = get(this, 'activeRow');
-    let activeCol = get(this, 'activeCol');
+    let activeRow = this.activeRow;
+    let activeCol = this.activeCol;
     let row = this.$(`.fancytext:nth-child(${activeRow + 1})`);
     let item = row.find(`:nth-child(${activeCol + 1})`);
     return item;
   }),
   selectDown: on(keyDown('ArrowDown'), function() {
-    let activeRow = get(this, 'activeRow');
-    let rowCount = get(this, 'rowCount');
+    let activeRow = this.activeRow;
+    let rowCount = this.rowCount;
     set(this, 'activeRow', modulo(activeRow + 1, rowCount));
     next(this, this.focusCurrentItem);
   }),
   selectUp: on(keyDown('ArrowUp'), function() {
-    let activeRow = get(this, 'activeRow');
-    let rowCount = get(this, 'rowCount');
+    let activeRow = this.activeRow;
+    let rowCount = this.rowCount;
     set(this, 'activeRow', modulo(activeRow - 1, rowCount));
     next(this, this.focusCurrentItem);
   }),
   selectLeft: on(keyDown('ArrowLeft'), function() {
-    let activeCol = get(this, 'activeCol');
+    let activeCol = this.activeCol;
     if (activeCol === 2) {
-      let input = get(this, 'currentItem');
+      let input = this.currentItem;
       if (input[0].selectionStart > 0) {
         return false;
       }
@@ -73,9 +73,9 @@ export default Component.extend(EKMixin, {
     next(this, this.focusCurrentItem);
   }),
   selectRight: on(keyDown('ArrowRight'), function() {
-    let activeCol = get(this, 'activeCol');
+    let activeCol = this.activeCol;
     if (activeCol === 2) {
-      let input = get(this, 'currentItem');
+      let input = this.currentItem;
       if (input[0].selectionEnd <= input.val().length - 1) {
         return false;
       }
@@ -85,10 +85,10 @@ export default Component.extend(EKMixin, {
     next(this, this.focusCurrentItem);
   }),
   selectEnter: on(keyDown('Enter'), function() {
-    let activeCol = get(this, 'activeCol');
+    let activeCol = this.activeCol;
     if (activeCol === 2) {
-      let activeRow = get(this, 'activeRow');
-      let rowCount = get(this, 'rowCount');
+      let activeRow = this.activeRow;
+      let rowCount = this.rowCount;
       set(this, 'activeRow', modulo(activeRow + 1, rowCount));
       next(this, this.focusCurrentItem);
     }
@@ -97,8 +97,8 @@ export default Component.extend(EKMixin, {
     this.sendAction('doneEditing');
   }),
   focusCurrentItem() {
-    let activeRow = get(this, 'activeRow');
-    let activeCol = get(this, 'activeCol');
+    let activeRow = this.activeRow;
+    let activeCol = this.activeCol;
     let row = this.$(`.fancytext:nth-child(${activeRow + 1})`);
     let item = row.find(`:nth-child(${activeCol + 1})`);
     item.focus();

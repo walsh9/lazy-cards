@@ -15,7 +15,7 @@ export default Component.extend({
   openModal: null,
   editMode: null,
   helpText: computed('editMode', function() {
-    let editMode = get(this, 'editMode');
+    let editMode = this.editMode;
     let defaultHelp = '[↑],[↓]: Select, [Enter]: Choose Item';
     return {
       text: '[→],[←],[↑],[↓]: Select, [Enter]: Change Option, [Esc]: Back/Done',
@@ -40,7 +40,7 @@ export default Component.extend({
       set(this, 'openModal', 'emoji-selector');
     },
     toggleGraphicSize() {
-      let selectedFace = get(this, 'selectedFace');
+      let selectedFace = this.selectedFace;
       let graphicSize = get(this, selectedFace + 'Data.graphicSize');
       if (graphicSize === 'big') {
         set(this, selectedFace + 'Data.graphicSize', 'medium');
@@ -54,17 +54,17 @@ export default Component.extend({
       set(this, 'openModal', 'font-selector');
     },
     setBorder(border) {
-      let selectedFace = get(this, 'selectedFace');
+      let selectedFace = this.selectedFace;
       set(this, selectedFace + 'Data.border', border);
       this.send('closeModal');
     },
     setEmoji(emoji) {
-      let selectedFace = get(this, 'selectedFace');
+      let selectedFace = this.selectedFace;
       set(this, selectedFace + 'Data.graphic', emoji);
       this.send('closeModal');
     },
     setFont(font) {
-      let selectedFace = get(this, 'selectedFace');
+      let selectedFace = this.selectedFace;
       set(this, selectedFace + 'Data.font', font);
       this.send('closeModal');
     },
@@ -78,7 +78,7 @@ export default Component.extend({
       set(this, 'editMode', null);
     },
     setText(index, text) {
-      let selectedFace = get(this, 'selectedFace');
+      let selectedFace = this.selectedFace;
       let textList = get(this, selectedFace + 'Data.text');
       next(function() {textList.replace(index, 1, text);});
     },

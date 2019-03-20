@@ -1,11 +1,13 @@
-import { moduleForComponent, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render, find } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('emoji-selector', 'Integration | Component | emoji selector', {
-  integration: true
-});
+module('Integration | Component | emoji selector', function(hooks) {
+  setupRenderingTest(hooks);
 
-test('it renders', function(assert) {
-  this.render(hbs`{{emoji-selector}}`);
-  assert.equal(this.$('h1').text().trim(), 'Choose a Category');
+  test('it renders', async function(assert) {
+    await render(hbs`{{emoji-selector}}`);
+    assert.dom('h1').hasText('Choose a Category');
+  });
 });

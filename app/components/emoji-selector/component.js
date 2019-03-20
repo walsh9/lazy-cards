@@ -41,11 +41,11 @@ export default Component.extend({
   },
   emojiList: computed('emojis', 'category', function() {
     let alias = {'new!': 'unicode9'};
-    let emojis = get(this, 'emojis');
+    let emojis = this.emojis;
     if (emojis) {
-      let category = get(this, 'category');
+      let category = this.category;
       category = alias[category] || category;
-      return emojis.filterBy('category', category).filter( emoji => !get(this, 'temporalBlackList').includes(emoji.shortname) );
+      return emojis.filterBy('category', category).filter( emoji => !this.temporalBlackList.includes(emoji.shortname) );
     }
     return [];
   }),

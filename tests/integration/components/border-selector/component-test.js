@@ -1,11 +1,13 @@
-import { moduleForComponent, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render, find } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('border-selector', 'Integration | Component | border selector', {
-  integration: true
-});
+module('Integration | Component | border selector', function(hooks) {
+  setupRenderingTest(hooks);
 
-test('it renders', function(assert) {
-  this.render(hbs`{{border-selector}}`);
-  assert.equal(this.$().text().trim(), 'Choose a Border');
+  test('it renders', async function(assert) {
+    await render(hbs`{{border-selector}}`);
+    assert.dom('*').hasText('Choose a Border');
+  });
 });

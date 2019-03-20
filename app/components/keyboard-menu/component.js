@@ -25,10 +25,10 @@ export default Component.extend(EKMixin, EKOnInsertMixin, {
   },
   actions: {
     select: function(index) {
-      if (index !== get(this, 'currentIndex')) {
+      if (index !== this.currentIndex) {
         set(this, 'currentIndex', index);
       }
-      let currentItem = get(this, 'currentItem');
+      let currentItem = this.currentItem;
       this.sendAction('selectHandler', currentItem);
     },
     cancel: function() {
@@ -39,7 +39,7 @@ export default Component.extend(EKMixin, EKOnInsertMixin, {
   itemSelector: 'li',
   didReceiveAttrs() {
     scheduleOnce('afterRender', this, function() {
-      let itemSelector = get(this, 'itemSelector');
+      let itemSelector = this.itemSelector;
       let elements = this.$(itemSelector).toArray();
       let lefts = elements.map(itemEl => $(itemEl).offset().left).uniq();
       let tops = elements.map(itemEl => $(itemEl).offset().top).uniq();
@@ -70,7 +70,7 @@ export default Component.extend(EKMixin, EKOnInsertMixin, {
       return this._indexToPos(currentIndex, elementGrid);
     },
     set(pos) {
-      let grid = get(this, 'elementGrid');
+      let grid = this.elementGrid;
       set(this, 'currentIndex', this._posToIndex(pos, grid));
       return pos;
     }
@@ -97,7 +97,7 @@ export default Component.extend(EKMixin, EKOnInsertMixin, {
   }),
   chooseCurrent: on(keyDown('Enter'), keyDown('Space'), function(event) {
     event.preventDefault();
-    let currentIndex = get(this, 'currentIndex');
+    let currentIndex = this.currentIndex;
     this.send('select', this._getItem(currentIndex).index);
   }),
   selectLeft: on(keyDown('ArrowLeft'), function(event) {
@@ -125,10 +125,10 @@ export default Component.extend(EKMixin, EKOnInsertMixin, {
   _moveViaKeyboard(targetName, event) {
     event.preventDefault();
     set(this, 'currentIndex', this._getItem(get(this, targetName)).index);
-    this._scrollIntoView(get(this, 'currentElement'));
+    this._scrollIntoView(this.currentElement);
   },
   _getItem(index) {
-    let options = get(this, 'options');
+    let options = this.options;
     let item = options[index];
     return {item, index};
   },
@@ -148,14 +148,14 @@ export default Component.extend(EKMixin, EKOnInsertMixin, {
     return this._posToIndex(this._getRelativePos(deltaPos));
   },
   _indexToPos(index) {
-    let grid = get(this, 'elementGrid');
+    let grid = this.elementGrid;
     let width = grid.width;
     let x = modulo(index, width);
     let y = Math.floor(index / width);
     return {x, y};
   },
   _posToIndex(pos) {
-    let grid = get(this, 'elementGrid');
+    let grid = this.elementGrid;
     return pos.x + pos.y * grid.width;
   },
   _scrollIntoView(element) {

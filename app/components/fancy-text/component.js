@@ -13,7 +13,7 @@ export default Component.extend({
   text: null,
   index: null,
   textClasses: computed('text.{size,align,style}', function() {
-    let {size, align, style} = get(this, 'text');
+    let {size, align, style} = this.text;
     let classes = `text-size--${size} text-align--${align} text-style--${style}`;
     return htmlSafe(classes);
   }),
@@ -49,7 +49,7 @@ export default Component.extend({
       } else {
         set(this, 'text.size', 'large');
       }
-      this.sendAction('select', get(this, 'index'), 1);
+      this.sendAction('select', this.index, 1);
     },
     toggleFontAlign() {
       let align = get(this, 'text.align');
@@ -60,19 +60,19 @@ export default Component.extend({
       } else {
         set(this, 'text.align', 'left');
       }
-      this.sendAction('select', get(this, 'index'), 0);
+      this.sendAction('select', this.index, 0);
     },
     change(event) {
       let newText = Object.assign(
         {},
-        get(this, 'text'),
+        this.text,
         {contents: event.target.value}
       );
-      let index = get(this, 'index');
+      let index = this.index;
       this.sendAction('updateText', index, newText);
     },
     selectTextInput() {
-      let index = get(this, 'index');
+      let index = this.index;
       this.sendAction('select', index, 2);
     }
   }

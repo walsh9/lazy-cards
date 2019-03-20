@@ -25,7 +25,7 @@ export default Component.extend({
       'medium': 5,
       'little': 13,
     };
-    return countMap[get(this, 'size')];
+    return countMap[this.size];
   }),
   graphicSize: computed('size', function() {
     let sizeMap = {
@@ -33,10 +33,10 @@ export default Component.extend({
       'medium': 150,
       'little': 75,
     };
-    return sizeMap[get(this, 'size')];
+    return sizeMap[this.size];
   }),
   graphics: computed('graphicCount', function() {
-    let graphicCount = get(this, 'graphicCount');
+    let graphicCount = this.graphicCount;
     let graphicArray = [];
     for(let i = 0; i < graphicCount; i++) {
       graphicArray.push(true);
@@ -44,10 +44,10 @@ export default Component.extend({
     return graphicArray;
   }),
   graphicUrl: computed('graphic', function() {
-    let graphic = get(this, 'graphic');
+    let graphic = this.graphic;
     if (graphic) {
       let url =`assets/png_512x512/${get(graphic, 'unicode')}.png`;
-      return this.get('assetMap').resolve(url);
+      return this.assetMap.resolve(url);
     }
     return '';
   }),

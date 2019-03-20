@@ -26,7 +26,7 @@ export default EmberObject.extend({
     set(this, 'border',          settings.border);
     set(this, 'text',            []);
     for(let i = 0; i < settings.numRows; i++) {
-      get(this, 'text').pushObject(TextRow.create(settings.textOptions));
+      this.text.pushObject(TextRow.create(settings.textOptions));
     }
   }
 });

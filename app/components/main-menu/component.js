@@ -4,7 +4,7 @@ import { get } from '@ember/object';
 
 export default Component.extend({
   options: computed('selectedFace', 'settings', function() {
-    let selectedFace = get(this, 'selectedFace');
+    let selectedFace = this.selectedFace;
     if (selectedFace === 'front') {
       return [
         { label: 'Choose Graphic',      value: ['openEmojiSelector'] },
