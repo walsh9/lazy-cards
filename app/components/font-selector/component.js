@@ -5,10 +5,5 @@ export default Component.extend({
   init() {
     this._super(...arguments);
     this.fonts = this.fonts || [];
-  },
-  actions: {
-    chooseFont(font) {
-      this.sendAction('selectFont', font);
-    }
   }
 });

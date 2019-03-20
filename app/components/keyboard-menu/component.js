@@ -14,6 +14,8 @@ export default Component.extend(EKMixin, EKOnInsertMixin, {
   attributeBindings: ['role'],
   role: 'menu',
   classNames: ['keyboardmenu'],
+  selectAction: () => {},
+  cancelAction: () => {},
   init() {
     this._super(...arguments);
     this.options = this.options || [];
@@ -29,10 +31,10 @@ export default Component.extend(EKMixin, EKOnInsertMixin, {
         set(this, 'currentIndex', index);
       }
       let currentItem = this.currentItem;
-      this.sendAction('selectHandler', currentItem);
+      this.selectAction(currentItem);
     },
     cancel: function() {
-      this.sendAction('cancelHandler');
+      this.cancelAction('cancelHandler');
     }
   },
   currentIndex: 0,

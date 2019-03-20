@@ -1,18 +1,18 @@
-<h1 class='font-selector__heading'>Choose a Font</h1>
-<div class='font-selector__list'>
-{{#keyboard-menu class='font-selector__menu'
-  keyboardPriority=1
-  options=fonts
-  selectHandler=(action 'chooseFont')
-  cancelHandler=cancelHandler
-  as |currentIndex select|}}
-  {{#each fonts as |font index|}}
-    <li class='font-selector__item {{if (eq index currentIndex) 'focus'}} {{class-for 'font' font}}'
-    role='menuitem'
-    tabindex='-1'
-    {{action select index}}>
-      {{font}}
-    </li>
-  {{/each}}
-{{/keyboard-menu}}
+<h1 class="font-selector__heading">Choose a Font</h1>
+<div class="font-selector__list">
+  {{#keyboard-menu class="font-selector__menu"
+    keyboardPriority=1
+    options=fonts
+    selectAction=(action fontSelectAction)
+    cancelAction=(action menuCancelAction)
+    as |currentIndex select|}}
+    {{#each fonts as |font index|}}
+      <li class="font-selector__item {{if (eq index currentIndex) "focus"}} {{class-for "font" font}}"
+      role="menuitem"
+      tabindex="-1"
+      {{action select index}}>
+        {{font}}
+      </li>
+    {{/each}}
+  {{/keyboard-menu}}
 </div>

@@ -1,6 +1,5 @@
 import Component from '@ember/component';
 import { set } from '@ember/object';
-import { get } from '@ember/object';
 import { computed } from '@ember/object';
 import { readOnly } from '@ember/object/computed';
 import { on } from '@ember/object/evented';
@@ -94,7 +93,7 @@ export default Component.extend(EKMixin, {
     }
   }),
   selectEscape: on(keyDown('Escape'), function() {
-    this.sendAction('doneEditing');
+    this.doneEditing();
   }),
   focusCurrentItem() {
     let activeRow = this.activeRow;

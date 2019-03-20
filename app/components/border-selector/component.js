@@ -5,10 +5,5 @@ export default Component.extend({
   init() {
     this._super(...arguments);
     this.borders = this.borders || [];
-  },
-  actions: {
-    chooseBorder(border) {
-      this.sendAction('selectBorder', border);
-    }
   }
 });

@@ -1,5 +1,4 @@
 import EmberObject from '@ember/object';
-import { get } from '@ember/object';
 import { set } from '@ember/object';
 import TextRow from './text-row';
 

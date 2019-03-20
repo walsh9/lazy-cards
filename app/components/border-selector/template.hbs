@@ -1,14 +1,14 @@
-<h1 class='border-selector__heading'>Choose a Border</h1>
-<div class='border-selector__list'>
-  {{#keyboard-menu class='border-selector__menu'
+<h1 class="border-selector__heading">Choose a Border</h1>
+<div class="border-selector__list">
+  {{#keyboard-menu class="border-selector__menu"
     keyboardPriority=1
     options=borders
-    selectHandler=(action 'chooseBorder')
-    cancelHandler=cancelHandler
+    selectAction=(action borderSelectAction)
+    cancelAction=(action menuCancelAction)
     as |currentIndex select|}}
     {{#each borders as |border index|}}
-      <li class='border-selector__item {{if (eq index currentIndex) 'focus'}} {{class-for 'border' border}}'
-      {{action 'chooseBorder' border}}>
+      <li role="button" class="border-selector__item {{if (eq index currentIndex) "focus"}} {{class-for "border" border}}"
+      {{action (action select border)}}>
         {{border}}
       </li>
     {{/each}}

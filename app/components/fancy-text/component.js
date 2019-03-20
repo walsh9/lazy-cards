@@ -40,17 +40,6 @@ export default Component.extend({
       set(this, 'isEditing', true);
       next(() => {this.$('.fancytext-input')[0].focus();});
     },
-    toggleFontSize() {
-      let size = get(this, 'text.size');
-      if (size === 'large') {
-        set(this, 'text.size', 'small');
-      } else if (size === 'small') {
-        set(this, 'text.size', 'medium');
-      } else {
-        set(this, 'text.size', 'large');
-      }
-      this.sendAction('select', this.index, 1);
-    },
     toggleFontAlign() {
       let align = get(this, 'text.align');
       if (align === 'left') {
@@ -60,7 +49,21 @@ export default Component.extend({
       } else {
         set(this, 'text.align', 'left');
       }
-      this.sendAction('select', this.index, 0);
+      this.select(this.index, 0);
+    },
+    toggleFontSize() {
+      let size = get(this, 'text.size');
+      if (size === 'large') {
+        set(this, 'text.size', 'small');
+      } else if (size === 'small') {
+        set(this, 'text.size', 'medium');
+      } else {
+        set(this, 'text.size', 'large');
+      }
+      this.select(this.index, 1);
+    },
+    selectTextInput() {
+      this.select(this.index, 2);
     },
     change(event) {
       let newText = Object.assign(
@@ -69,11 +72,7 @@ export default Component.extend({
         {contents: event.target.value}
       );
       let index = this.index;
-      this.sendAction('updateText', index, newText);
+      this.updateText(index, newText);
     },
-    selectTextInput() {
-      let index = this.index;
-      this.sendAction('select', index, 2);
-    }
   }
 });

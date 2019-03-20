@@ -4,43 +4,43 @@
 <div class="main">
   {{#unless editMode}}
     {{main-menu
-      selectHandler=(action 'mainmenuSelect')
+      selectAction=(action "mainmenuSelect")
       selectedFace=selectedFace}}
   {{/unless}}
   <div class="container">
-  <div class="page">
+    <div class="page">
       {{card-face
         class="cardface--front"
         data=frontData
-        isSelected=(eq selectedFace 'front')
+        isSelected=(eq selectedFace "front")
         editMode=editMode
-        updateText=(action 'setText')
-        doneEditing=(action 'endEditMode')}}
+        updateText=(action "setText")
+        doneEditing=(action "endEditMode")}}
       {{card-face
         class="cardface--inside"
         data=insideData
-        isSelected=(eq selectedFace 'inside')
+        isSelected=(eq selectedFace "inside")
         editMode=editMode
-        updateText=(action 'setText')
-        doneEditing=(action 'endEditMode')}}
-  </div>
+        updateText=(action "setText")
+        doneEditing=(action "endEditMode")}}
+    </div>
   </div>
 </div>
 
-{{#if (eq openModal 'border-selector')}}
+{{#if (eq openModal "border-selector")}}
   <div class="modal">
-    {{border-selector borders=borders selectBorder=(action 'setBorder') cancelHandler=(action 'closeModal')}}
+    {{border-selector borders=borders borderSelectAction=(action "setBorder") menuCancelAction=(action "closeModal")}}
   </div>
 {{/if}}
 
-{{#if (eq openModal 'emoji-selector')}}
+{{#if (eq openModal "emoji-selector")}}
   <div class="modal">
-    {{emoji-selector selectEmoji=(action 'setEmoji') cancelHandler=(action 'closeModal')}}
+    {{emoji-selector emojiSelectAction=(action "setEmoji") menuCancelAction=(action "closeModal")}}
   </div>
 {{/if}}
 
-{{#if (eq openModal 'font-selector')}}
+{{#if (eq openModal "font-selector")}}
   <div class="modal">
-    {{font-selector fonts=fonts selectFont=(action 'setFont') cancelHandler=(action 'closeModal')}}
+    {{font-selector fonts=fonts fontSelectAction=(action "setFont") menuCancelAction=(action "closeModal")}}
   </div>
 {{/if}}

@@ -3,7 +3,6 @@ import $ from 'jquery';
 import Component from '@ember/component';
 import { computed } from '@ember/object';
 import emojione from 'emojione';
-import { get } from '@ember/object';
 import { set } from '@ember/object';
 
 export default Component.extend({
@@ -68,7 +67,7 @@ export default Component.extend({
     },
     setGraphic(emoji) {
       set(this, 'choosingGraphics', false);
-      this.sendAction('selectEmoji', emoji);
+      this.emojiSelectAction(emoji);
     },
     cancel() {
       set(this, 'choosingGraphics', false);

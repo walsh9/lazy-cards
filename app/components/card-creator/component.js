@@ -80,7 +80,7 @@ export default Component.extend({
     setText(index, text) {
       let selectedFace = this.selectedFace;
       let textList = get(this, selectedFace + 'Data.text');
-      next(function() {textList.replace(index, 1, text);});
+      next(function() {textList.replace(index, 1, [text]);});
     },
     closeModal() {
       set(this, 'openModal', null);
